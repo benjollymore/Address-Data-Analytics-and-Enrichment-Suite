@@ -14,7 +14,7 @@ import tensorflow as tf
 from PIL import Image
 
 url = 'https://maps.googleapis.com/maps/api/geocode/json?address='
-key = '&key=AIzaSyCgcV2R4KkxhqdnzXXMAbYA4VLEBQd7w-8'
+key = '&key='
 
 address = sys.argv[1]
 addressSendable = address.replace(" ", "+")
@@ -38,7 +38,7 @@ for i in addressInfo:
 	print(i)
 
 url = 'https://maps.googleapis.com/maps/api/staticmap?center='
-key = '&zoom=15&size=400x400&maptype=satellite&key=AIzaSyCgcV2R4KkxhqdnzXXMAbYA4VLEBQd7w-8'
+key = '&zoom=15&size=400x400&maptype=satellite&key='
 query = url + str(lattitude) + ',' + str(longitude) + key
 
 urllib.request.urlretrieve(query, "testImage.png")
