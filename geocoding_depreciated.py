@@ -13,7 +13,7 @@ import cv2
 import tensorflow as tf
 
 url = 'https://maps.googleapis.com/maps/api/geocode/json?address='
-key = '&key=AIzaSyCgcV2R4KkxhqdnzXXMAbYA4VLEBQd7w-8'
+key = '&key='
 
 address = sys.argv[1]
 addressSendable = address.replace(" ", "+")
