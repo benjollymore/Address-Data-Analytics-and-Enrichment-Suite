@@ -1,0 +1,100 @@
+enriching address data
+integrity services canada
+
+openaddresses.io
+data.novascotia.ca
+
+hack58
+TrustProvides
+hackathon.cs.smu.ca
+
+problem statement
+
+context
+primary delivery of benefits, ei, cpp, etc
+half of its benefit processing
+half is program integrity validation
+right ppl right benefit right time
+fraud, identity theft detection
+"is the right person being paid the right amount"
+
+data driven integrity
+identity
+	are you x
+location
+	do you live at x
+employer
+	do you work at x
+employment
+	did you work x hrs for $x
+
+looking through dataset for anomalies to hand off to investigators
+use predictive models for income discrepancy, sickness
+risk mapping, risk models to get tips
+look at 4 main areas above
+one of the problems to be addressed in this hackathon is address/region
+some regions have different typical ei drains, regional discrepancy
+
+what contextual information can we add to an address? 
+how important is location?
+what do we know about a location that /could/ be useful?
+
+address validation - not a PO box, is address being rented by someone else and they are not in country
+is it a commercial or residential area? 
+vacant lot? 
+some of these things happen in some parts of the country, but not in the other
+perhaps situate thinking in only certain parts of the country, doesnt need to be that overarching
+
+often there is misleading or wrong information online
+
+objectives
+	append meaningful information to an address that could be used for analytics
+	generate address profiles for integrity and service improvements
+	generate insights of value for integrity and service improvements
+	generate visualisation tools to explore address characteristics/insights
+
+some example datasets and conclusions
+	dont think about building an app
+	look at small num datasets
+	"seeing the forest from the trees"
+	maybe try to get one functional model as demo
+	but soln arch is more important than actual soln
+
+	ex1
+		breaks down into 2 parts
+
+		enrchment
+			use, clean, enhnce
+		integrity
+			indentify, clarify, qualify
+
+		problem statement
+			given address, get probability of it being a
+			>commerical/business address
+			>residential address
+
+		grab some datasets and merge on postal code,
+		may need to clean postal codes
+
+	ex2
+		prob stmt
+			which sector for some addr
+			uses coop ds to find addrs of corp areas
+			does same for school, restos etc
+			add class for each, bind to residential ds by postal code
+			can easily create a nn, maybe even a cnn to build a sl-classifier
+			obviously clean out nul vals first
+
+	image classification
+
+	these 3 examples will be om server but not the scan slide
+
+
+communication of result or expected result is more important than actual result as far as judging process goes
+yasushi is head judge
+
+google maps API key
+AIzaSyCgcV2R4KkxhqdnzXXMAbYA4VLEBQd7w-8
+
+google geocoding API key
+AIzaSyCgcV2R4KkxhqdnzXXMAbYA4VLEBQd7w-8
