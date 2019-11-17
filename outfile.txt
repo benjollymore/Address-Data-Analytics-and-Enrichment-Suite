@@ -1,0 +1,67 @@
+Input:  174 horseshoe lake drive halifax ns
+
+Lattitude:  44.64089329999999
+Longitude:  -63.6728269
+
+Address data for this address is:
+
+ 174
+ Horseshoe Lake Drive
+ Clayton Park West
+ Halifax
+ Halifax
+ Halifax Regional Municipality
+ Nova Scotia
+ Canada
+ B3S 1H2
+
+Terrain Prediction from Sattelite:  industrial
+
+Building Type Prediction from StreetView:  commercial
+
+Mailing Status:
+
+Active:  None
+Commericial:  True
+Forwarding Mail:  False
+Delivery Type:  SingleUnit
+
+Person(s) associated with this Address:
+
+Name:  Nothin' Fancy Furniture Wrhse
+Age Range:  None
+Gender:  None
+Resident Type:  Business
+Phone Number:  +19024057005
+
+Name:  Catch A Look Clothing & Barber
+Age Range:  None
+Gender:  None
+Resident Type:  Business
+Phone Number:  +19024550012
+
+Name:  U-Haul Neighborhood Dealer
+Age Range:  None
+Gender:  None
+Resident Type:  Business
+Phone Number:  +18004684285
+
+Nearby business locations:
+
+ 1: Name     | Nothin' Fancy Furniture Warehouse, 
+    Address  | 174 Horseshoe Lake Drive, Halifax, 
+    Type     | ['furniture_store', 'home_goods_store', 'point_of_interest', 'store', 'establishment']  
+
+ 2: Name     | Titan's Fitness Academy, 
+    Address  | 174 Horseshoe Lake Drive, Halifax, 
+    Type     | ['gym', 'health', 'point_of_interest', 'establishment']  
+
+ 3: Name     | Happy Harry's Bayers Lake, 
+    Address  | 174 Horseshoe Lake Drive, Halifax, 
+    Type     | ['furniture_store', 'home_goods_store', 'point_of_interest', 'store', 'establishment']  
+
+
+==================================================================
+          Address May Be Mixed Residential and Commercial         
+==================================================================
+

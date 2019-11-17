@@ -98,3 +98,11 @@ AIzaSyCgcV2R4KkxhqdnzXXMAbYA4VLEBQd7w-8
 
 google geocoding API key
 AIzaSyCgcV2R4KkxhqdnzXXMAbYA4VLEBQd7w-8
+
+satmap
+val_loss = 1.121
+val_acc = 0.6523
+
+stmap
+val_loss = 0.7709
+val_acc = 0.8870

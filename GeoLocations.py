@@ -256,16 +256,16 @@ def street(lattitude, longitude):
 	key2 = '&pitch=10&key=AIzaSyCgcV2R4KkxhqdnzXXMAbYA4VLEBQd7w-8'
 	query2 = url2 + str(lattitude) + ',' + str(longitude) + key2
 	
-	urllib.request.urlretrieve(query2, "streetview.png")
+	urllib.request.urlretrieve(query2, "stView.jpg")
 	
-	img2 = Image.open("streetview.png")
+	img2 = Image.open("stView.jpg")
 	img2.show()
 	
 	CATEGORIES2 = ["apartment", "commercial", "house", "office", "vacant"]
 	
 	model2 = tf.keras.models.load_model("CNNStreet.model")
 	
-	img_array2 = cv2.imread("streetview.png", cv2.IMREAD_COLOR)
+	img_array2 = cv2.imread("stView.jpg", cv2.IMREAD_COLOR)
 	new_array2 = cv2.resize(img_array2, (400, 400))
 	new_array2 = new_array2.reshape(-1, 400, 400, 3)
 	
