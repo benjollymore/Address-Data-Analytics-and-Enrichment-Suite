@@ -44,13 +44,14 @@ print("Longitude: ", longitude)
 for i in addressInfo:
 	print(i)
 
-url = 'https://maps.googleapis.com/maps/api/staticmap?center='
-key = '&zoom=15&size=400x400&maptype=satellite&key=AIzaSyCgcV2R4KkxhqdnzXXMAbYA4VLEBQd7w-8'
-query = url + str(lattitude) + ',' + str(longitude) + key
+#####################################sattelite model#############################################
+url1 = 'https://maps.googleapis.com/maps/api/staticmap?center='
+key1 = '&zoom=15&size=400x400&maptype=satellite&key=AIzaSyCgcV2R4KkxhqdnzXXMAbYA4VLEBQd7w-8'
+query1 = url1 + str(lattitude) + ',' + str(longitude) + key1
 
 urllib.request.urlretrieve(query, "satellite.png")
-img = Image.open("satellite.png")
-img.show()
+img1 = Image.open("satellite.png")
+img1.show()
 
 CATEGORIES = ["city", "industrial", "rural", "suburban"]
 
@@ -62,12 +63,9 @@ new_array = new_array.reshape(-1, 400, 400, 3)
 
 prediction = model.predict(new_array)
 prediction = list(prediction[0])
-print(CATEGORIES[prediction.index(max(prediction))])
+print("Terrain Prediction from Sattelite: ", CATEGORIES[prediction.index(max(prediction))])
 
-#next up -- do same thing but grab street view image
-#build a building type classifier
-#house apt warehouse empty lot etc
-
+#####################################streetview model#############################################
 url2 = 'https://maps.googleapis.com/maps/api/streetview?size=400x400&location='
 key2 = '&pitch=10&key=AIzaSyCgcV2R4KkxhqdnzXXMAbYA4VLEBQd7w-8'
 query2 = url2 + str(lattitude) + ',' + str(longitude) + key2
@@ -87,4 +85,4 @@ new_array2 = new_array2.reshape(-1, 400, 400, 3)
 
 prediction2 = model.predict(new_array2)
 prediction2 = list(prediction2[0])
-print(CATEGORIES2[prediction2.index(max(prediction2))])
+print("Building Type Prediction from StreetView: ", CATEGORIES2[prediction2.index(max(prediction2))])
