@@ -92,7 +92,8 @@ def search_places_by_coordinate(location, radius):
 #Method to get the data for the location
 def get_street_info():
 	address = args.stringname[0]
-	print(address)
+	print("Input: ", address)
+	print()
 	addressSendable = address.replace(" ", "+")
 
 	query = url + addressSendable + key
@@ -146,7 +147,6 @@ def print_location_data(data, short):
 def get_compare_address(data):
 	x = [i['long_name'] for i in data if i['types'][0] == "street_number" or i['types'][0] == "route" or i['types'][0] == "locality"]
 	retVal = x[0] + " " + x[1] + ', ' + x[2]
-	print(retVal)
 	return retVal
 
 def get_businesses_with_same_address(aData, pData):
@@ -207,7 +207,6 @@ def format_whitepages_input(data):
     retVal['prov'] = provStr
     retVal['street']= streetStr
     retVal['unit']= ""
-    print(retVal)
     return retVal
 
 
@@ -220,7 +219,6 @@ def get_whitepages_data(data):
         'street_line_1': data['street'],
         'street_line_2': data['unit']}
     page = requests.get(urlWhitePages, params=params)
-    print(page)
     return page.json()
 
 
@@ -235,7 +233,7 @@ cityTest = {
 }
 
 def print_whitepages_data(pageData):
-    print("Mailing Status:")
+    print("\nMailing Status:")
     print("\nActive: ",pageData['is_active'])
     print("Commericial: ",pageData['is_commercial'])
     print("Forwarding Mail: ",pageData['is_forwarder'])
@@ -271,7 +269,7 @@ def street(lattitude, longitude):
 	
 	prediction2 = model2.predict(new_array2)
 	prediction2 = list(prediction2[0])
-	print("Building Type Prediction from StreetView: ", CATEGORIES2[prediction2.index(max(prediction2))])
+	print("\nBuilding Type Prediction from StreetView: ", CATEGORIES2[prediction2.index(max(prediction2))])
 
 def sattelite(lattitude, longitude):
 	#####################################sattelite model#############################################
@@ -293,7 +291,7 @@ def sattelite(lattitude, longitude):
 	
 	prediction = model.predict(new_array)
 	prediction = list(prediction[0])
-	print("Terrain Prediction from Sattelite: ", CATEGORIES[prediction.index(max(prediction))])
+	print("\nTerrain Prediction from Sattelite: ", CATEGORIES[prediction.index(max(prediction))])
 
 #Runtime code
 addressData = get_street_info()
