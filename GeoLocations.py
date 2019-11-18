@@ -316,7 +316,7 @@ def sattelite(lattitude, longitude):
 	prediction = model.predict(new_array)
 	prediction = list(prediction[0])
 	print("\nTerrain Prediction from Sattelite: ", CATEGORIES[prediction.index(max(prediction))])
-	appendJSON("streetClass", CATEGORIES[prediction2.index(max(prediction))])
+	appendJSON("streetClass", CATEGORIES[prediction.index(max(prediction))])
 
 #Runtime code
 addressData = get_street_info()
