@@ -320,27 +320,28 @@ def print_whitepages_data(pageData):
 
 	if args.verbose:
 		print("\nPerson(s) associated with this Address:")
-		
-	outputJSON += '"people":[ '
-	for person in pageData['current_residents']:
-		outputJSON += "{ "
-		if args.verbose:
-			print("\nName: ", person["name"])
-			print("Age Range: ", person["age_range"])
-			print("Gender: ", person["gender"])
-			print("Resident Type: ", person["type"])
-			print("Phone Number: ", person["phones"][0]["phone_number"])
-		
-		appendJSON("name", person["name"])
-		appendJSON("ageRange", person["age_range"])
-		appendJSON("gender", person["gender"])
-		appendJSON("resType", person["type"])
-		appendJSON("phone", person["phones"][0]["phone_number"])
-		outputJSON = outputJSON[:-2]
-		outputJSON += "}, "
+	
+	if len(pageData['current_residents']) is not 0:
+		outputJSON += '"people":[ '
+		for person in pageData['current_residents']:
+			outputJSON += "{ "
+			if args.verbose:
+				print("\nName: ", person["name"])
+				print("Age Range: ", person["age_range"])
+				print("Gender: ", person["gender"])
+				print("Resident Type: ", person["type"])
+				print("Phone Number: ", person["phones"][0]["phone_number"])
+			
+			appendJSON("name", person["name"])
+			appendJSON("ageRange", person["age_range"])
+			appendJSON("gender", person["gender"])
+			appendJSON("resType", person["type"])
+			appendJSON("phone", person["phones"][0]["phone_number"])
+			outputJSON = outputJSON[:-2]
+			outputJSON += "}, "
 
-	outputJSON = outputJSON[:-2]
-	outputJSON += "], "
+		outputJSON = outputJSON[:-2]
+		outputJSON += "], "
 
 
 def street(lattitude, longitude):
@@ -457,6 +458,7 @@ appendJSON("flagged",str(isFlagged))
 appendJSON("embassy",str(isEmbassy))
 appendJSON("postOffice",str(isPostOffice))
 terminateJSON()
+
 if args.verboseJSON:
 	print(json.dumps(output, indent=4))
 
