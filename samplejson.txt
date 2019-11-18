@@ -1,0 +1,28 @@
+{'lattitude': '44.6356139',
+ 'longitude': '-63.5756761',
+  'address': '5681\nRhuland St\nSouth End\nHalifax\nHalifax\nHalifax Regional Municipality\nNS\nCA\nB3H\n',
+  'active': 'None',
+  'commercialMail': 'False',
+  'forwardsMail': 'False',
+  'deliveryType': 'SingleUnit',
+  'people': [
+  		{
+  		'name': 'Kerry Wellon',
+        'ageRange': 'None',
+        'gender': 'None',
+        'resType': 'Person',
+        'phone': '+19024742886'
+        },
+        {
+        'name': 'Jordan Davis',
+        'ageRange': 'None',
+        'gender': 'None',
+        'resType': 'Person',
+        'phone': '+19024437779'
+         }], 
+   'interesting': 'True',
+   'flagged': 'False',
+   'embassy': 'False',
+   'postOffice': 'False'
+   'satClass': 'city',
+   'streetClass': 'apartment'}
