@@ -19,6 +19,19 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 types = ["accounting", "airport", "amusement_park", "aquarium", "art_gallery", "atm", "bakery", "bank", "bar", "beauty_salon", "bicycle_store", "book_store", "bowling_alley", "bus_station", "cafe", "campground", "car_dealer","car_rental","car_repair","car_wash","casino","cemetery","church","city_hall","clothing_store","convenience_store","courthouse","dentist","department_store","doctor","electrician","electronics_store","embassy","fire_station","florist","funeral_home","furniture_store","gas_station","gym","hair_care","hardware_store","hindu_temple","home_goods_store","hospital","insurance_agency","jewelry_store","laundry","lawyer","library","liquor_store","local_government_off", "locksmith", "lodging", "meal_delivery", "meal_takeaway", "mosque", "movie_rental", "movie_theater", "moving_company", "museum", "night_club", "painter", "park", "parking", "pet_store", "pharmacy", "physiotherapist", "plumber", "police", "post_office", "real_estate_agency", "restaurant", "roofing_contractor", "rv_park", "school", "shoe_store", "shopping_mall", "spa", "stadium", "storage", "store", "subway_station", "supermarket", "synagogue", "taxi_stand", "train_station", "transit_station", "travel_agency", "veterinary_care", "zoo" ]
 
+outputJSON = "{"
+outputt = ""
+
+def appendJSON(strIn, attrib):
+	global outputJSON
+	outputJSON += '"'+ strIn + '":"' + attrib + '", '
+
+def terminateJSON():
+	global output, outputJSON
+	outputJSON = outputJSON[:-2]
+	outputJSON += "}"
+	output = json.loads(outputJSON)
+
 
 isInteresting = False
 isFlagged = False
@@ -109,6 +122,9 @@ def get_street_info():
 	print("Lattitude: ", lattitude)
 	print("Longitude: ", longitude)
 
+	appendJSON("lattitude", str(lattitude))
+	appendJSON("longitude", str(longitude))
+
 	try:
 		place_id = geoData["results"][0]['place_id']
 	except KeyError:
@@ -141,10 +157,16 @@ def print_place_data(data):
 	print()
 
 def print_location_data(data, short):
+	global outputJSON
 	print("\nAddress data for this address is:\n")
+	jsonBuilder = ''
 	for i in data['addressInfo']:
 		print(" %s"%( i['short_name'] if short else i['long_name']))
-
+		if short:
+			jsonBuilder += i['short_name'] + "\\n"
+		else:
+			jsonBuilder += i['short_name'] + "\\n"
+	appendJSON("address", jsonBuilder)
 
 def get_compare_address(data):
 	x = [i['long_name'] for i in data if i['types'][0] == "street_number" or i['types'][0] == "route" or i['types'][0] == "locality"]
@@ -175,7 +197,6 @@ def check_for_flaggable(data):
 					isPostOffice = True
 				if x == 'embassy':
 					isEmbassy = True
-
 
 def print_address_data(aData, pData):
 	global isInteresting
@@ -272,6 +293,7 @@ def street(lattitude, longitude):
 	prediction2 = model2.predict(new_array2)
 	prediction2 = list(prediction2[0])
 	print("\nBuilding Type Prediction from StreetView: ", CATEGORIES2[prediction2.index(max(prediction2))])
+	appendJSON("streetClass", CATEGORIES2[prediction2.index(max(prediction2))])
 
 def sattelite(lattitude, longitude):
 	#####################################sattelite model#############################################
@@ -294,6 +316,7 @@ def sattelite(lattitude, longitude):
 	prediction = model.predict(new_array)
 	prediction = list(prediction[0])
 	print("\nTerrain Prediction from Sattelite: ", CATEGORIES[prediction.index(max(prediction))])
+	appendJSON("streetClass", CATEGORIES[prediction2.index(max(prediction))])
 
 #Runtime code
 addressData = get_street_info()
@@ -351,3 +374,10 @@ elif isInteresting:
 		"==================================================================\n"
 		"          Address May Be Mixed Residential and Commercial         \n"
 		"==================================================================\n")
+
+appendJSON("interesting",str(isInteresting))
+appendJSON("flagged",str(isFlagged))
+appendJSON("embassy",str(isEmbassy))
+appendJSON("postOffice",str(isPostOffice))
+terminateJSON()
+print(output)
