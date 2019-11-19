@@ -38,6 +38,7 @@ Thumbs.db
 
 # Ours #
 ######################
+*.bk
 *.h5
 Models
 *.png
