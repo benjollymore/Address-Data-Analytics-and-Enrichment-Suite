@@ -357,7 +357,7 @@ def street(lattitude, longitude):
 	
 	CATEGORIES2 = ["apartment", "commercial", "house", "office", "vacant"]
 	
-	model2 = tf.keras.models.load_model("CNNStreet.model")
+	model2 = tf.keras.models.load_model("Models/CNNStreet.model")
 	
 	img_array2 = cv2.imread("templates/stView.jpg", cv2.IMREAD_COLOR)
 	img_array2 = img_array2/255.0
@@ -382,7 +382,7 @@ def sattelite(lattitude, longitude):
 	
 	CATEGORIES = ["city", "industrial", "rural", "suburban"]
 	
-	model = tf.keras.models.load_model("CNN.model")
+	model = tf.keras.models.load_model("Models/CNN.model")
 	
 	img_array = cv2.imread("templates/satellite.png", cv2.IMREAD_COLOR)
 	img_array = img_array/255.0

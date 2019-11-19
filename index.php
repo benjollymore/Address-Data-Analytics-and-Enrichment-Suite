@@ -22,7 +22,7 @@
 
 			function getJSONData(number){
 
-				file ="/" + number + ".json";
+				file ="/JSON_FILES/" + number + ".json";
 				$.getJSON(file, function(json){
 
 			//build address
