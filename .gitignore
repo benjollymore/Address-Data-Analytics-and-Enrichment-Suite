@@ -42,4 +42,10 @@ Thumbs.db
 Models
 *.png
 *.jpg
+dashboard
 !service_canada_logo.jpg
+applications.html
+bitnami.css
+favicon.ico
+xampp
+webalizer
