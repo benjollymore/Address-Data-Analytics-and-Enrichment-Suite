@@ -1,6 +1,8 @@
 # DataHackathon
 Data Science repository for inhouse hackathon
 
+Code by myself and Daniel Doucett (github.com/kyreikal)
+
 Data packaged around 2019-11-09 by OpenAddresses (http://openaddresses.io).
 
 Website: http://www.halifax.ca/opendata/
