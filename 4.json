@@ -1,0 +1,28 @@
+{
+    "lattitude": "44.6470598",
+    "longitude": "-63.575311",
+    "address": {
+        "number": "1707",
+        "street": "Grafton Street",
+        "neighborhood": "South End",
+        "locality": "Halifax",
+        "city": "Halifax",
+        "muncipality": "Halifax Regional Municipality",
+        "province": "Nova Scotia",
+        "country": "Canada",
+        "postal_code": "B3J 2C6"
+    },
+    "satClass": "city",
+    "streetClass": "apartment",
+    "businesses": [
+        {
+            "name": "The Wooden Monkey",
+            "vicinity": "1707 Grafton Street, Halifax",
+            "types": "['restaurant', 'food', 'point_of_interest', 'establishment']"
+        }
+    ],
+    "interesting": "True",
+    "flagged": "False",
+    "embassy": "False",
+    "postOffice": "False"
+}

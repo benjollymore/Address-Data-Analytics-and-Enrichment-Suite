@@ -20,12 +20,12 @@ print("Processing your request, please wait. When finished, a web interface will
 addresses = [line.rstrip('\n') for line in open(controlFile)]
 
 output = '{ "addresses":['
-
-for addr in addresses:
+'''
+for addr in addresses: 
 	print("Processing: ", addr)
 	command = 'python GeoLocations.py --ld --pad --pld --vj --sat --st "' + addr + '" > ' + str(addresses.index(addr)) + '.json'
 	subprocess.call(command, shell=True)
-
+'''
 for i in range(0, len(addresses)):
 	control = str(i) + '.json'
 	with open(control) as json_file:
@@ -35,6 +35,10 @@ for i in range(0, len(addresses)):
 output = output[:-2]
 output += " ]}"
 outputJSON = json.loads(output)
+
+with open('output.json', 'w') as outfile:
+    json.dump(outputJSON, outfile)
+
 application_window.destroy()
 
 print("Done!")
