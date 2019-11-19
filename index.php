@@ -3,22 +3,22 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Address Enrichment Center</title>
-    <link rel = "stylesheet" href = "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 	<script src = "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	<meta name="viewport" content="width=device-width, height=device-height initial-scale=1.0 shrink-to-fit=no">
 
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <link rel = "stylesheet" href = "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
     <style>
       td {padding-left:  1%;}
     </style>
+    <script>var FileID; </script>
 </head>
 
 <body>
 	<script> 
-		var FileID; 
+		
 		var loaded = false;
 
 		$(document).on("pageshow", function () {
@@ -28,6 +28,8 @@
 			  } 
 			else if ($('.ui-page-active').attr('id') ==
 			    "Page2") {
+			  		loadData();
+
 			  } 
 			});
 
@@ -35,19 +37,35 @@
 
 	<div data-role="page" id="page1">
 	
-	<div data-role="header">
-		<h1>
-			Address Enrichment Suite
-		</h1>
-	</div>
-	<div data-role="content">
+	<div class="container">
+	 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	  <a class="navbar-brand" href="#"><img src="service-canada-logo.jpg" width="100" height="50" alt="" ></a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarText">
+	    <ul class="navbar-nav mr-auto">
+	      <li class="nav-item active">
+	        <a class="nav-link" href="#Page2">Address Lookup<span class="sr-only">(current)</span></a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="#page1">Address Database</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="#">Other Resources</a>
+	      </li>
+	    </ul>
+	  </div>
+	</nav>
+
+
 
 		<script>
 			
 			function getJSONData(number)
 			{
-				fileID ="/JSON_FILES/" + number + ".json";
-				console.log(fileID);
+				FileID ="/JSON_FILES/" + number + ".json";
+				console.log(FileID);
 				//$.mobile.changePage("Page2");
 
 			}
@@ -56,7 +74,7 @@
 			{
 
 				file ="/JSON_FILES/" + number + ".json";
-				$.getJSON(file, function(json){
+				jquery.getJSON(file, function(json){
 
 			//build address
 			document.getElementById('addr').innerHTML = "<b>Address:</b><br>";
@@ -125,7 +143,8 @@
 				rawFile.send(null);
 
 				for (i = 0; i < addresses.length; i++){
-					document.getElementById('nav').innerHTML += "<button onclick=\"getJSONData(" + i + ")\"><a href=#Page2>" + addresses[i] + "</a></button><br>";
+					document.getElementById('nav').innerHTML += 
+					"<button onclick=\"getJSONData(" + i + ")\" style=\"width: 98%; margin-left: 1%; margin-right: 10%; margin-top: 15px;\"><a href=#Page2>" + addresses[i] + "</a></button><br>";
 				}
 
 				loaded = true;}
@@ -147,8 +166,32 @@
 	</div>
 </div>
 	<div data-role="page" id="Page2">
+		<script>
+			function loadData() {
+				console.log(FileID);
+			jQuery.getJSON(FileID, function(json)
+			{
+
+				//build address
+				//document.getElementById('street').innerHTML = "<b>Address:</b><br>";
+				document.getElementById('StreeNum').innerHTML = json.address.number;
+				console.log(json.address.number);
+				document.getElementById('StreetName').innerHTML = json.address.street;
+				document.getElementById('Neighborhood').innerHTML = json.address.neighborhood;
+				document.getElementById('City').innerHTML = json.address.city;
+				document.getElementById('Muncipality').innerHTML = json.address.muncipality;
+				document.getElementById('Province').innerHTML = json.address.province;
+				document.getElementById('Country').innerHTML = json.address.country;
+				document.getElementById('PostalCode').innerHTML = json.address.postal_code;
+
+				document.getElementById('StreetView').innerHTML = "<iframe width=\"100%\" height=\"300\" frameborder=\"0\" style=\"border:0\"src=\"https://www.google.com/maps/embed/v1/streetview?location=" + json.lattitude + "," + json.longitude + "&pitch=10&key=AIzaSyCgcV2R4KkxhqdnzXXMAbYA4VLEBQd7w-8\" allowfullscreen></iframe>";
+				document.getElementById('SatView').innerHTML = "<iframe width=\"100%\" height=\"300\" frameborder=\"0\" style=\"border:0\"src=\"https://www.google.com/maps/embed/v1/view?center=" + json.lattitude + "," + json.longitude + "&zoom=18&maptype=satellite&key=AIzaSyCgcV2R4KkxhqdnzXXMAbYA4VLEBQd7w-8\" allowfullscreen></iframe>";
+			});
+		}
+		</script>
+
 	    <div class="container">
-	       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 	      <a class="navbar-brand" href="#"><img src="service-canada-logo.jpg" width="100" height="50" alt="" ></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="navbar-toggler-icon"></span>
@@ -229,15 +272,15 @@
 	                  </tr>
 	                </thead>
 	                <tbody> 
-	                <tr><td>Number</td><td>5595</td></tr>
-	                <tr><td>Street</td><td>Fenwick Street</td></tr>
-	                <tr><td>Neighborhood</td><td>South End</td></tr>
-	                <tr><td>Locality</td><td>Halifax</td></tr>
-	                <tr><td>City</td><td>Halifax</td></tr>
-	                <tr><td>Muncipality</td><td>Halifax Regional Municipality</td></tr>
-	                <tr><td>Province</td><td>Nova Scotia</td></tr>
-	                <tr><td>Country</td><td>Canada</td></tr>
-	                <tr><td>Postal Code</td><td>B3H 4M2</td></tr>
+	                <tr><td>Number</td><td id="StreeNum">5595</td></tr>
+	                <tr><td>Street</td><td id="StreetName">Fenwick Street</td></tr>
+	                <tr><td>Neighborhood</td><td id="Neighborhood">South End</td></tr>
+	                <tr><td>Locality</td><td id="Locality">Halifax</td></tr>
+	                <tr><td>City</td><td id ="City">Halifax</td></tr>
+	                <tr><td>Muncipality</td><td id="Muncipality">Halifax Regional Municipality</td></tr>
+	                <tr><td>Province</td><td id="Province">Nova Scotia</td></tr>
+	                <tr><td>Country</td><td id="Country">Canada</td></tr>
+	                <tr><td>Postal Code</td><td id="PostalCode">B3H 4M2</td></tr>
 
 
 	                </tbody>
@@ -258,7 +301,7 @@
 	      <div class="col-4" style="margin-right: 15px; margin-left: -15px">
 	        <div class="card" style="margin-top: 15px">
 	                <h5 class="card-header bg-secondary">Street View</h5>
-	              <div class="card-body bg-secondary">
+	              <div class="card-body bg-secondary" id="StreetView">
 	                <iframe src="https://www.google.com/maps/embed?pb=!4v1574136651625!6m8!1m7!1sn4kdeobKqhaBsaBKydVeqw!2m2!1d44.63049246863288!2d-63.58225347839939!3f143.13222998123817!4f0!5f0.7820865974627469" width=100% height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 	              </div>
 	              <div class="card-footer">
@@ -268,7 +311,7 @@
 
 	            <div class="card" style="margin-top: 15px">
 	                <h5 class="card-header bg-secondary">Satellite Image</h5>
-	              <div class="card-body bg-secondary">
+	              <div class="card-body bg-secondary" id="SatView">
 	                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2494.2991792068888!2d-63.58283926117638!3d44.63107297040737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sca!4v1574137000127!5m2!1sen!2sca" width=100% height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>  
 	              </div>
 	              <div class="card-footer">
@@ -305,7 +348,7 @@
 
 	<br><br>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 </body>
