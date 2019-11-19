@@ -23,7 +23,7 @@ output = '{ "addresses":['
 
 for addr in addresses:
 	print("Processing: ", addr)
-	command = 'python helpers/GeoLocations.py --ld --pad --pld --vj --sat --st "' + addr + '" > ' + str(addresses.index(addr)) + '.json'
+	command = 'python GeoLocations.py --ld --pad --pld --vj --sat --st "' + addr + '" > ' + str(addresses.index(addr)) + '.json'
 	subprocess.call(command, shell=True)
 
 for i in range(0, len(addresses)):
