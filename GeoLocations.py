@@ -22,16 +22,6 @@ types = ["accounting", "airport", "amusement_park", "aquarium", "art_gallery", "
 outputJSON = "{"
 output = ""
 
-def appendJSON(strIn, attrib):
-	global outputJSON
-	outputJSON += '"'+ strIn + '":"' + str(attrib) + '", '
-
-def terminateJSON():
-	global output, outputJSON
-	outputJSON = outputJSON[:-2]
-	outputJSON += "}"
-	output = json.loads(outputJSON)
-
 isInteresting = False
 isFlagged = False
 isPostOffice = False
@@ -70,8 +60,25 @@ parser.add_argument('--v', dest='verbose',
 parser.add_argument('--vj', dest='verboseJSON', 
 	help="Print json output to console",
 	action="store_true")
+parser.add_argument('--dj', dest='debugJSON', 
+	help="Debug JSON structure",
+	action="store_true")
+
 
 args=parser.parse_args()
+
+def appendJSON(strIn, attrib):
+	global outputJSON
+	outputJSON += '"'+ strIn + '":"' + str(attrib) + '", '
+
+def terminateJSON():
+	global output, outputJSON
+	outputJSON = outputJSON[:-2]
+	outputJSON += "}"
+	if args.debugJSON:
+		print(outputJSON)
+	else:
+		output = json.loads(outputJSON)
 
 
 #Variables for APIs
@@ -452,11 +459,13 @@ if args.verbose:
 			"==================================================================\n"
 			"          Address May Be Mixed Residential and Commercial         \n"
 			"==================================================================\n")
-
+outputJSON+='"flags": {'
 appendJSON("interesting",str(isInteresting))
 appendJSON("flagged",str(isFlagged))
 appendJSON("embassy",str(isEmbassy))
 appendJSON("postOffice",str(isPostOffice))
+outputJSON = outputJSON[:-2]
+outputJSON += '}, '
 terminateJSON()
 
 if args.verboseJSON:
