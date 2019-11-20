@@ -240,7 +240,24 @@
 					document.getElementById('satCls').innerHTML = "<b>TensorFlow Terrain Type Prediction: " + json.satClass + "</b>";
 					document.getElementById('addrHeader').innerHTML = "<h1>" + json.address.number + " " + json.address.street + "</h1>";
 
-					
+					if(json.businesses){
+						document.getElementById('accordionExample').innerHTML = "";
+						for (i = 0; i < json.businesses.length; i++){
+							var collapse = "collapse";
+							if (i == 0){
+								collapse = "collase show"
+							}
+							document.getElementById('accordionExample').innerHTML += '<div class="card"><div class="card-header" id="heading' + i + '"><h2 class="mb-0"><button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse' + i +'" aria-expanded="false" aria-controls="collapse' + i + '"><b>' 
+							+ json.businesses[i].name + 
+							'</b></button></h2></div><div id="collapse' + i + '" class="' + collapse +'" aria-labelledby="heading' + i + '" data-parent="#accordionExample"><div class="card-body">' + '<b>Vicinity: </b>' + json.businesses[i].vicinity + "<br>"
+							+ '<b>Business types: </b>' + json.businesses[i].types + "<br" +
+							'</div></div></div>';
+						}
+					}
+					else{
+						document.getElementById('accordionExample').innerHTML = "<h3>No Business Information for this Address</h3>";
+					}
+
 					if (json.flags.flagged == "True")
 					{	
 						document.getElementById('deck1').innerHTML = "";
@@ -256,6 +273,7 @@
 
 				$("#prevbtn").click(function() {$('#carousel').carousel('prev');return false; })
 				$("#nextbtn").click(function() {$('#carousel').carousel('next');return false; })
+
 
 			}
 
@@ -387,8 +405,38 @@
 
 							</div>
 							<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+								<div class="accordion" id="accordionExample">
+									<div class="card">
+										<div class="card-header" id="headingOne">
+											<h2 class="mb-0">
+												<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+													Collapsible Group Item #1
+												</button>
+											</h2>
+										</div>
 
-								..sfsdf.
+										<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+											<div class="card-body">
+												Lorem
+											</div>
+										</div>
+									</div>
+									<div class="card">
+										<div class="card-header" id="headingTwo">
+											<h2 class="mb-0">
+												<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+													Collapsible Group Item #2
+												</button>
+											</h2>
+										</div>
+										<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+											<div class="card-body">
+												Ipsum 
+											</div>
+										</div>
+									</div>
+
+								</div>
 							</div>
 							<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">Other Information Can Go here</div>
 						</div>
