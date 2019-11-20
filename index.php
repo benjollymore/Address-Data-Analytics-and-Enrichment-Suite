@@ -32,49 +32,49 @@
 			{
 				initialize('addresses.txt')
 			} 
-		else if ($('.ui-page-active').attr('id') == "Page2") 
-		{
-			loadData();
-		} 
-		else if ($('.ui-page-active').attr('id') == "Page3")
-		{
-			onLoad();
-		}
-	});
+			else if ($('.ui-page-active').attr('id') == "Page2") 
+			{
+				loadData();
+			} 
+			else if ($('.ui-page-active').attr('id') == "Page3")
+			{
+				onLoad();
+			}
+		});
 
 	</script>
 
-<div data-role="page" id="page1">
-	
-	<div class="container">
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<a class="navbar-brand" href="#"><img src="service-canada-logo.jpg" width="100" height="50" alt="" ></a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarText">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active">
-						<a class="nav-link" href="#Page2">Address Lookup<span class="sr-only">(current)</span></a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#page1">Address Database</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#Page3">Other Resources</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
+	<div data-role="page" id="page1">
+
+		<div class="container">
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+				<a class="navbar-brand" href="#"><img src="service-canada-logo.jpg" width="100" height="50" alt="" ></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarText">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="#Page2">Address Lookup<span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#page1">Address Database</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#Page3">Other Resources</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
 
 
 
-		<script>
-			
-			function getJSONData(number)
-			{
-				FileID ="/JSON_FILES/" + number + ".json";
-				console.log(FileID);
+			<script>
+
+				function getJSONData(number)
+				{
+					FileID ="/JSON_FILES/" + number + ".json";
+					console.log(FileID);
 				//$.mobile.changePage("Page2");
 
 			}
@@ -228,10 +228,17 @@
 				<div class="col-8">
 					<div class ="jumbotron py-1" style="margin-left:15px;margin-right: 0px; margin-bottom: 15px;margin-top: 15px;">
 						<h2> 
-						<form>
-							<input type="text" style="min-width: 70%; height: 40px; margin-left: 1%; margin-right: 1%">
-							<button class="btn btn-primary" type="button" style="width: 26%; margin-right=:1%; height: 40px; margin-top: -10px">Address Search</button>
-						</form>
+							<form>
+								<script>
+									function sendToPy(address){
+										$.post('sendNewQuery.php', {query: address}, function(data) {
+											console.log(data);
+										});
+									}
+								</script>
+								<input type="text" id="searchTxt" style="min-width: 70%; height: 40px; margin-left: 1%; margin-right: 1%">
+								<button class="btn btn-primary" type="button" onclick="sendToPy(document.getElementById('searchTxt').value)" style="width: 26%; margin-right=:1%; height: 40px; margin-top: -10px">Address Search</button>
+							</form>
 						</h2>
 					</div>
 
@@ -270,7 +277,7 @@
 							<div class="col-1">
 								<button id="prevbtn" class="m-0 p-0" style="width:100%; height:100%" disabled> <h1> < </h1></button>
 							</div>
- 
+
 							<div class="col-10 p-0">
 								<div id="carousel" class="carousel slide" data-ride="carousel">
 									<div class="carousel-inner">

@@ -241,7 +241,7 @@ def get_businesses_with_same_address(aData, pData):
 	return retVal
 
 def check_for_flaggable(data):
-	global isFlagged, isPostOffice, isEmbassy
+	global isPostOffice, isEmbassy
 	flaggable = [
 		'post_office', 'car_dealer', 'cemetery', 
 		'courthouse', 'embassy', 'park', 'storage']
@@ -249,16 +249,16 @@ def check_for_flaggable(data):
 	for i in data:
 		for x in i['types']:
 			if x in flaggable:
-				isFlagged = True
 				if x == 'post_office':
 					isPostOffice = True
 				if x == 'embassy':
 					isEmbassy = True
 
 def print_address_data(aData, pData):
-	global isInteresting
+	global isInteresting, isFlagged
 	data = get_businesses_with_same_address(aData, pData)
 	if len(data) > 0: 
+		isFlagged = True
 		isInteresting = True
 		check_for_flaggable(data)
 
@@ -460,6 +460,7 @@ if args.verbose:
 			"==================================================================\n"
 			"          Address May Be Mixed Residential and Commercial         \n"
 			"==================================================================\n")
+
 outputJSON+='"flags": {'
 appendJSON("interesting",str(isInteresting))
 appendJSON("flagged",str(isFlagged))
