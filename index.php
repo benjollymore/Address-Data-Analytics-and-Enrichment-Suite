@@ -251,6 +251,10 @@
 									function sendToPy(address){
 										$.post('sendNewQuery.php', {query: address}, function(data) {
 											console.log(data);
+											var index = data;
+											FileID ="/JSON_FILES/" + index + ".json";
+											loadData();
+
 										});
 									}
 								</script>

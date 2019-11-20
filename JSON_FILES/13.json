@@ -1,0 +1,40 @@
+{
+    "lattitude": "44.6356139",
+    "longitude": "-63.5756761",
+    "address": {
+        "number": "5681",
+        "street": "Rhuland Street",
+        "neighborhood": "South End",
+        "locality": "Halifax",
+        "city": "Halifax",
+        "muncipality": "Halifax Regional Municipality",
+        "province": "Nova Scotia",
+        "country": "Canada",
+        "postal_code": "B3H"
+    },
+    "satClass": "city",
+    "streetClass": "apartment",
+    "businesses": [
+        {
+            "name": "The Sherwood",
+            "vicinity": "5681 Rhuland Street, Halifax",
+            "types": "['point_of_interest', 'establishment']"
+        },
+        {
+            "name": "V & G Realty Ltd",
+            "vicinity": "5681 Rhuland Street, Halifax",
+            "types": "['general_contractor', 'point_of_interest', 'establishment']"
+        },
+        {
+            "name": "Gaia Organic Cleaners",
+            "vicinity": "5681 Rhuland Street, Halifax",
+            "types": "['point_of_interest', 'establishment']"
+        }
+    ],
+    "flags": {
+        "interesting": "True",
+        "flagged": "True",
+        "embassy": "False",
+        "postOffice": "False"
+    }
+}
