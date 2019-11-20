@@ -102,8 +102,8 @@
 
 					</script>
 					<div id="crap" class="text-center">
-						<input type="text" id="searchTxt" style="min-width: 70%; height: 40px; margin-left: 1%; margin-right: 1%">
-						<button class="btn btn-primary" type="button" onclick="sendToPy(document.getElementById('searchTxt').value)" style="width: 26%; margin-right=:1%; height: 40px; margin-top: -10px">Address Search</button>
+						<input type="text" id="searchTxt" style="min-width: 70%; height: 40px; margin-left: 1%; margin-right: 1%" placeholder="Input address here">
+						<button class="btn btn-primary" type="button" onclick="sendToPy(document.getElementById('searchTxt').value)" style="width: 26%; margin-right=:1%; height: 40px; margin-top: -10px">Add Address To Database</button>
 					</div>
 				</form>
 			</h2>
@@ -235,6 +235,11 @@
 					//Fill the sat and street view fields
 					document.getElementById('StreetView').innerHTML = "<iframe width=\"100%\" height=\"300\" frameborder=\"0\" style=\"border:0\"src=\"https://www.google.com/maps/embed/v1/streetview?location=" + json.lattitude + "," + json.longitude + "&pitch=10&key=AIzaSyCgcV2R4KkxhqdnzXXMAbYA4VLEBQd7w-8\" allowfullscreen></iframe>";
 					document.getElementById('SatView').innerHTML = "<iframe width=\"100%\" height=\"300\" frameborder=\"0\" style=\"border:0\"src=\"https://www.google.com/maps/embed/v1/view?center=" + json.lattitude + "," + json.longitude + "&zoom=18&maptype=satellite&key=AIzaSyCgcV2R4KkxhqdnzXXMAbYA4VLEBQd7w-8\" allowfullscreen></iframe>";
+
+					document.getElementById('strCls').innerHTML = "<b>TensorFlow Building Type Prediction: " + json.streetClass + "</b>";
+					document.getElementById('satCls').innerHTML = "<b>TensorFlow Terrain Type Prediction: " + json.satClass + "</b>";
+					document.getElementById('addrHeader').innerHTML = "<h1>" + json.address.number + " " + json.address.street + "</h1>";
+
 					
 					if (json.flags.flagged == "True")
 					{	
@@ -280,7 +285,7 @@
 				<!-- -->
 				<div class="col-8">
 					<div class ="jumbotron py-1" style="margin-left:15px;margin-right: 0px; margin-bottom: 15px;margin-top: 15px;">
-						<!-- put addrss here -->
+						<div id="addrHeader"></div>
 					</div>
 
 					<div id="flags" class ="jumbotron px-2 py-3" style="margin-left:15px;margin-right: 0px; margin-bottom: 15px;margin-top: 15px;">
@@ -398,7 +403,7 @@
 							<iframe src="https://www.google.com/maps/embed?pb=!4v1574136651625!6m8!1m7!1sn4kdeobKqhaBsaBKydVeqw!2m2!1d44.63049246863288!2d-63.58225347839939!3f143.13222998123817!4f0!5f0.7820865974627469" width=100% height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 						</div>
 						<div class="card-footer">
-							<small class="text-muted">Address map</small>
+							<small class="text-muted" id="strCls">Address map</small>
 						</div>
 					</div>
 
@@ -408,7 +413,7 @@
 							<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2494.2991792068888!2d-63.58283926117638!3d44.63107297040737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sca!4v1574137000127!5m2!1sen!2sca" width=100% height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>  
 						</div>
 						<div class="card-footer">
-							<small class="text-muted">Address map</small>
+							<small class="text-muted" id="satCls">Address map</small>
 						</div>
 					</div>
 
