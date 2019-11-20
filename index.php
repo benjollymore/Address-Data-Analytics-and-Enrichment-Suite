@@ -322,6 +322,9 @@
 						if(json.flags.interesting == "True")
 							document.getElementById('deck1').innerHTML += MixedLocationWarning;
 					}
+					else{
+						document.getElementById('deck1').innerHTML = NoWarnings;
+					}
 
 				});
 
