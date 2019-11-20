@@ -231,6 +231,9 @@
 					document.getElementById('Province').innerHTML = json.address.province;
 					document.getElementById('Country').innerHTML = json.address.country;
 					document.getElementById('PostalCode').innerHTML = json.address.postal_code;
+					document.getElementById('comMail').innerHTML = json.commercialMail;
+					document.getElementById('forMail').innerHTML = json.forwardsMail;
+					document.getElementById('devMail').innerHTML = json.deliveryType;
 
 					//Fill the sat and street view fields
 					document.getElementById('StreetView').innerHTML = "<iframe width=\"100%\" height=\"300\" frameborder=\"0\" style=\"border:0\"src=\"https://www.google.com/maps/embed/v1/streetview?location=" + json.lattitude + "," + json.longitude + "&pitch=10&key=AIzaSyCgcV2R4KkxhqdnzXXMAbYA4VLEBQd7w-8\" allowfullscreen></iframe>";
@@ -250,12 +253,33 @@
 							document.getElementById('accordionExample').innerHTML += '<div class="card"><div class="card-header" id="heading' + i + '"><h2 class="mb-0"><button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse' + i +'" aria-expanded="false" aria-controls="collapse' + i + '"><b>' 
 							+ json.businesses[i].name + 
 							'</b></button></h2></div><div id="collapse' + i + '" class="' + collapse +'" aria-labelledby="heading' + i + '" data-parent="#accordionExample"><div class="card-body">' + '<b>Vicinity: </b>' + json.businesses[i].vicinity + "<br>"
-							+ '<b>Business types: </b>' + json.businesses[i].types + "<br" +
+							+ '<b>Business types: </b>' + json.businesses[i].types + "<br>" +
 							'</div></div></div>';
 						}
 					}
 					else{
 						document.getElementById('accordionExample').innerHTML = "<h3>No Business Information for this Address</h3>";
+					}
+
+
+					if(json.people){
+						document.getElementById('residentialAccordion').innerHTML = "";
+						for (i = 0; i < json.people.length; i++){
+							var collapse = "collapse";
+							if (i == 0){
+								collapse = "collase show"
+							}
+							document.getElementById('residentialAccordion').innerHTML += '<div class="card"><div class="card-header" id="heading' + i + '"><h2 class="mb-0"><button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse' + i +'" aria-expanded="false" aria-controls="collapse' + i + '"><b>' 
+							+ json.people[i].name + 
+							'</b></button></h2></div><div id="collapse' + i + '" class="' + collapse +'" aria-labelledby="heading' + i + '" data-parent="#residentialAccordion"><div class="card-body">' + '<b>Age Range: </b>' + json.people[i].ageRange + "<br>"
+							+ '<b>Gender: </b>' + json.people[i].gender + "<br>" +
+							'<b>Type: </b>' + json.people[i].resType + "<br>" +
+							'<b>Phone: </b>' + json.people[i].phone + "<br>" +
+							'</div></div></div>';
+						}
+					}
+					else{
+						document.getElementById('residentialAccordion').innerHTML = "<h3>No Resident Information for this Address</h3>";
 					}
 
 					if (json.flags.flagged == "True")
@@ -374,7 +398,7 @@
 							<div class="nav nav-tabs" id="nav-tab" role="tablist">
 								<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Address Data</a>
 								<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Business Data</a>
-								<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Other Info</a>
+								<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Resident Data</a>
 							</div>
 						</nav>
 						<div class="tab-content" id="nav-tabContent">
@@ -397,6 +421,9 @@
 										<tr><td>Province</td><td id="Province">Nova Scotia</td></tr>
 										<tr><td>Country</td><td id="Country">Canada</td></tr>
 										<tr><td>Postal Code</td><td id="PostalCode">B3H 4M2</td></tr>
+										<tr><td>Commercial Address</td><td id="comMail">False</td></tr>
+										<tr><td>Mail Forwarded</td><td id="forMail">False</td></tr>
+										<tr><td>Delivery Type</td><td id="devMail">Single Unit</td></tr>
 
 
 									</tbody>
@@ -438,7 +465,43 @@
 
 								</div>
 							</div>
-							<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">Other Information Can Go here</div>
+							<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+								<div class="accordion" id="residentialAccordion">
+									<div class="card">
+										<div class="card-header" id="headingOne">
+											<h2 class="mb-0">
+												<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+													Collapsible Group Item #1
+												</button>
+											</h2>
+										</div>
+
+										<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#residentialAccordion">
+											<div class="card-body">
+												Lorem
+											</div>
+										</div>
+									</div>
+									<div class="card">
+										<div class="card-header" id="headingTwo">
+											<h2 class="mb-0">
+												<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+													Collapsible Group Item #2
+												</button>
+											</h2>
+										</div>
+										<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#residentialAccordion">
+											<div class="card-body">
+												Ipsum 
+											</div>
+										</div>
+									</div>
+
+								</div>
+
+
+							</div>
+							
 						</div>
 					</div>
 				</div>
