@@ -1,11 +1,13 @@
 import json
 import os
-import subprocess
+from subprocess import Popen
 import webbrowser
 import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
 
+
+processes = []
 application_window = tk.Tk()
 my_filetypes = [('all files', '.*'), ('text files', '.txt')]
 # Ask the user to select a single file name.
@@ -24,13 +26,15 @@ addresses = [line.rstrip('\n') for line in open(controlFile)]
 with open("codes.txt", 'w') as filetowrite:
     filetowrite.write('-')
 
-'''
+
 for addr in addresses: 
 	print("Processing: ", addr)
 	command = 'python GeoLocations.py --ld --pad --pld --vj --sat --st --wp "' + addr + '" > JSON_FILES/' + str(addresses.index(addr)) + '.json'
 	#print(command)
-	subprocess.call(command, shell=True)
-'''
+	processes.append(Popen(command, shell=True))
+
+for p in processes: p.wait()
+
 
 for j in range(0, len(addresses)):
 	control = "JSON_FILES/" + str(j) + ".json"

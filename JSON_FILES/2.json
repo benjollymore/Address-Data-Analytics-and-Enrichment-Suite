@@ -13,7 +13,7 @@
         "postal_code": "B3H 4M2"
     },
     "satClass": "city",
-    "streetClass": "apartment",
+    "streetClass": "house",
     "active": "None",
     "commercialMail": "None",
     "forwardsMail": "False",
