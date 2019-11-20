@@ -13,7 +13,12 @@
 	<style>
 		td {padding-left:  1%;}
 	</style>
-	<script>var FileID; </script>
+	<script>
+		var FileID; 
+
+		var PostOfficeWarning = 
+		'<div class="card"><h5 class="card-header bg-danger">Post Office</h5><div class="card-body"><p class="card-text">This location is flagged as a post office. Verify address is not a PO box.</p></div><div class="card-footer"><small class="text-muted">Post Office Flag Triggered</small></div></div>'
+	</script>
 </head>
 
 <body>
@@ -21,19 +26,23 @@
 		
 		var loaded = false;
 
-		$(document).on("pageshow", function () {
-			if ($('.ui-page-active').attr('id') ==
-				"page1") {
+		$(document).on("pageshow", function () 
+		{
+			if ($('.ui-page-active').attr('id') =="page1") 
+			{
 				initialize('addresses.txt')
-		} 
-		else if ($('.ui-page-active').attr('id') ==
-			"Page2") {
+			} 
+		else if ($('.ui-page-active').attr('id') == "Page2") 
+		{
 			loadData();
+		} 
+		else if ($('.ui-page-active').attr('id') == "Page3")
+		{
+			onLoad();
+		}
+	});
 
-	} 
-});
-
-</script>
+	</script>
 
 <div data-role="page" id="page1">
 	
@@ -172,22 +181,26 @@
 				jQuery.getJSON(FileID, function(json)
 				{
 
-				//build address
-				//document.getElementById('street').innerHTML = "<b>Address:</b><br>";
-				document.getElementById('StreeNum').innerHTML = json.address.number;
-				console.log(json.address.number);
-				document.getElementById('StreetName').innerHTML = json.address.street;
-				document.getElementById('Neighborhood').innerHTML = json.address.neighborhood;
-				document.getElementById('City').innerHTML = json.address.city;
-				document.getElementById('Muncipality').innerHTML = json.address.muncipality;
-				document.getElementById('Province').innerHTML = json.address.province;
-				document.getElementById('Country').innerHTML = json.address.country;
-				document.getElementById('PostalCode').innerHTML = json.address.postal_code;
+					//Fill Address Fields
+					document.getElementById('StreeNum').innerHTML = json.address.number;
+					document.getElementById('StreetName').innerHTML = json.address.street;
+					document.getElementById('Neighborhood').innerHTML = json.address.neighborhood;
+					document.getElementById('City').innerHTML = json.address.city;
+					document.getElementById('Muncipality').innerHTML = json.address.muncipality;
+					document.getElementById('Province').innerHTML = json.address.province;
+					document.getElementById('Country').innerHTML = json.address.country;
+					document.getElementById('PostalCode').innerHTML = json.address.postal_code;
 
-				document.getElementById('StreetView').innerHTML = "<iframe width=\"100%\" height=\"300\" frameborder=\"0\" style=\"border:0\"src=\"https://www.google.com/maps/embed/v1/streetview?location=" + json.lattitude + "," + json.longitude + "&pitch=10&key=AIzaSyCgcV2R4KkxhqdnzXXMAbYA4VLEBQd7w-8\" allowfullscreen></iframe>";
-				document.getElementById('SatView').innerHTML = "<iframe width=\"100%\" height=\"300\" frameborder=\"0\" style=\"border:0\"src=\"https://www.google.com/maps/embed/v1/view?center=" + json.lattitude + "," + json.longitude + "&zoom=18&maptype=satellite&key=AIzaSyCgcV2R4KkxhqdnzXXMAbYA4VLEBQd7w-8\" allowfullscreen></iframe>";
-			});
+					//Fill the sat and street view fields
+					document.getElementById('StreetView').innerHTML = "<iframe width=\"100%\" height=\"300\" frameborder=\"0\" style=\"border:0\"src=\"https://www.google.com/maps/embed/v1/streetview?location=" + json.lattitude + "," + json.longitude + "&pitch=10&key=AIzaSyCgcV2R4KkxhqdnzXXMAbYA4VLEBQd7w-8\" allowfullscreen></iframe>";
+					document.getElementById('SatView').innerHTML = "<iframe width=\"100%\" height=\"300\" frameborder=\"0\" style=\"border:0\"src=\"https://www.google.com/maps/embed/v1/view?center=" + json.lattitude + "," + json.longitude + "&zoom=18&maptype=satellite&key=AIzaSyCgcV2R4KkxhqdnzXXMAbYA4VLEBQd7w-8\" allowfullscreen></iframe>";
+				});
+
+				$("#prevbtn").click(function() {$('#carouselExampleControls').carousel('prev');return false; })
+				$("#nextbtn").click(function() {$('#carouselExampleControls').carousel('next');return false; })
+
 			}
+
 		</script>
 
 		<div class="container">
@@ -205,7 +218,7 @@
 							<a class="nav-link" href="#page1">Address Database</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Other Resources</a>
+							<a class="nav-link" href="#Page3">Other Resources</a>
 						</li>
 					</ul>
 				</div>
@@ -213,15 +226,15 @@
 			<div class="row">
 				<!-- -->
 				<div class="col-8">
-					<div class ="jumbotron" style="margin-left:15px;margin-right: 0px; margin-bottom: 15px;margin-top: 15px; padding: 15px">
+					<div class ="jumbotron py-1" style="margin-left:15px;margin-right: 0px; margin-bottom: 15px;margin-top: 15px;">
 						<h2> 
 							<input type="text" style="min-width: 70%; height: 40px; margin-left: 1%; margin-right: 1%">
 							<button class="btn btn-primary" type="button" style="width: 26%; margin-right=:1%; height: 40px; margin-top: -10px">Address Search</button>
 						</h2>
 					</div>
 
-					<div class ="jumbotron" style="margin-left:15px;margin-right: 0px; margin-bottom: 15px;margin-top: 15px; padding: 15px">
-						<div class="card-deck">
+					<div id="flags" class ="jumbotron px-2 py-3" style="margin-left:15px;margin-right: 0px; margin-bottom: 15px;margin-top: 15px;">
+					<!-- 	<div class="card-deck">
 							<div class="card">
 								<h5 class="card-header bg-danger">Post Office</h5>
 								<div class="card-body">
@@ -249,7 +262,37 @@
 									<small class="text-muted">Bus Route Flag</small>
 								</div>
 							</div>
+						</div> -->
+
+						<div class="row">
+							<div class="col-1">
+								<button id="prevbtn" class="m-0 p-0" style="width:100%; height:100%" disabled> <h1> < </h1></button>
+							</div>
+ 
+							<div class="col-10 p-0">
+								<div id="carousel" class="carousel slide" data-ride="carousel">
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<div class="card-deck">
+												<div class="card">
+													<h5 class="card-header bg-info">No Flags</h5>
+													<div class="card-body">
+														<p class="card-text">This address has not triggered any automated flags.</p>
+													</div>
+													<div class="card-footer">
+														<small class="text-muted">No Flags</small>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>						
+							<div class="col-1">
+								<button id="nextbtn" class="m-0 p-0" style="width:100%; height:100%" disabled> <h1> ></h1></button>
+							</div>
 						</div>
+
 					</div>
 
 					<div class ="jumbotron bg-light" style="margin-left:15px;margin-right: 0px; margin-bottom: 15px;margin-top: 15px; padding: 15px">
@@ -326,6 +369,116 @@
 		</div>
 
 	</div>
+
+	<div data-role="page" id="Page3">
+		<script>
+			function onLoad() {
+				$("#prevbtn").click(function() {$('#carouselExampleControls').carousel('prev');return false; })
+				$("#nextbtn").click(function() {$('#carouselExampleControls').carousel('next');return false; })
+			}
+		</script>
+
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand" href="#"><img src="service-canada-logo.jpg" width="100" height="50" alt="" ></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarText">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">Address Lookup<span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#page1">Address Database</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#Page3">Other Resources</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="jumbotron col-8 mt-2 ml-2 py-1">
+			<div class="row">
+				<div class="col-1">
+					<button id="prevbtn" class="m-0" style="width:100%; height:100%"> <h1> < </h1></button>
+				</div>
+
+				<div class="col-10">
+					<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<div class="card-deck">
+									<div class="card">
+										<h5 class="card-header bg-danger">Post Office</h5>
+										<div class="card-body">
+											<p class="card-text">This location is flagged as a post office. Verify address is not a PO box.</p>
+										</div>
+										<div class="card-footer">
+											<small class="text-muted">Post Office Flag Triggered</small>
+										</div>
+									</div>
+									<div class="card">
+										<h5 class="card-header bg-warning">Mixed Location</h5>
+										<div class="card-body">
+											<p class="card-text">This location may be mixed residential and commerical.</p>
+										</div>
+										<div class="card-footer">
+											<small class="text-muted">Address has businesses</small>
+										</div>
+									</div>
+									<div class="card">
+										<h5 class="card-header bg-info">Bus Route</h5>
+										<div class="card-body">
+											<p class="card-text">This location is a bus root.</p>
+										</div>
+										<div class="card-footer">
+											<small class="text-muted">Bus Route Flag</small>
+										</div>
+									</div>
+								</div> 
+							</div>
+							<div class="carousel-item">
+								<div class="card-deck">
+									<div class="card">
+										<h5 class="card-header bg-danger">Post Office</h5>
+										<div class="card-body">
+											<p class="card-text">This location is flagged as a post office. Verify address is not a PO box.</p>
+										</div>
+										<div class="card-footer">
+											<small class="text-muted">Post Office Flag Triggered</small>
+										</div>
+									</div>
+									<div class="card">
+										<h5 class="card-header bg-info">Bus Route</h5>
+										<div class="card-body">
+											<p class="card-text">This location is a bus root.</p>
+										</div>
+										<div class="card-footer">
+											<small class="text-muted">Bus Route Flag</small>
+										</div>
+									</div>
+									<div class="card">
+										<h5 class="card-header bg-warning">Mixed Location</h5>
+										<div class="card-body">
+											<p class="card-text">This location may be mixed residential and commerical.</p>
+										</div>
+										<div class="card-footer">
+											<small class="text-muted">Address has businesses</small>
+										</div>
+									</div>
+								</div> 
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-1">
+					<button id="nextbtn" class="m-0" style="width:100%; height:100%"> <h1> > </h1></button>
+				</div>
+			</div>
+		</div>
+	</div>
 <!--
 		<form action="/echo" method="POST">
 			<input name="text" placeholder="Enter an address to query here!" required>
@@ -348,7 +501,7 @@
 
 	<br><br>
 
-	<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 </body>
