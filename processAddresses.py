@@ -24,11 +24,31 @@ addresses = [line.rstrip('\n') for line in open(controlFile)]
 with open("codes.txt", 'w') as filetowrite:
     filetowrite.write('-')
 
+'''
 for addr in addresses: 
 	print("Processing: ", addr)
 	command = 'python GeoLocations.py --ld --pad --pld --vj --sat --st --wp "' + addr + '" > JSON_FILES/' + str(addresses.index(addr)) + '.json'
 	#print(command)
 	subprocess.call(command, shell=True)
+'''
+
+for j in range(0, len(addresses)):
+	control = "JSON_FILES/" + str(j) + ".json"
+	with open(control) as json_file:
+		data = json.load(json_file)
+
+		with open("codes.txt", "a") as myfile:
+			if data['flags']['postOffice'] == "True":
+				myfile.write('\n2')
+			elif data['flags']['interesting'] == "True":
+				myfile.write('\n1')
+			else:
+				myfile.write('\n0')
+
+
+
+
+
 '''
 for i in range(0, len(addresses)):
 	control = str(i) + '.json'

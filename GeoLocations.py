@@ -63,6 +63,11 @@ parser.add_argument('--vj', dest='verboseJSON',
 parser.add_argument('--dj', dest='debugJSON', 
 	help="Debug JSON structure",
 	action="store_true")
+parser.add_argument('--a', dest='appendToCodes', 
+	help="Append Satus code",
+	action="store_true")
+
+
 
 
 args=parser.parse_args()
@@ -470,13 +475,14 @@ outputJSON = outputJSON[:-2]
 outputJSON += '}, '
 terminateJSON()
 
-with open("codes.txt", "a") as myfile:
-	if isPostOffice:
-		myfile.write('\n2')
-	elif isInteresting:
-		myfile.write('\n1')
-	else:
-		myfile.write('\n0')
+if args.appendToCodes:
+	with open("codes.txt", "a") as myfile:
+		if isPostOffice:
+			myfile.write('\n2')
+		elif isInteresting:
+			myfile.write('\n1')
+		else:
+			myfile.write('\n0')
 
 if args.verboseJSON:
 	print(json.dumps(output, indent=4))
