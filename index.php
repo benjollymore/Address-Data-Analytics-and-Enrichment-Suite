@@ -569,7 +569,6 @@
 				<div class="col-1">
 					<button id="prevbtn" class="m-0" style="width:100%; height:100%"> <h1> < </h1></button>
 				</div>
-
 				<div class="col-10">
 					<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 						<div class="carousel-inner">
@@ -644,6 +643,9 @@
 				</div>
 			</div>
 		</div>
+				Developed By Ben Jollymore and Daniel Doucett. <br>
+				ben@jollycom.tech, github.com/benjollymore <br>
+				daniel@doucett.tech, github.com/kyreikal
 	</div>
 <!--
 		<form action="/echo" method="POST">
