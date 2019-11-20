@@ -1,6 +1,6 @@
 Address Data Analytics and Enrichment Suite
 
-Code by myself and Daniel Doucett (github.com/kyreikal)
+Code by myself, Daniel Doucett (github.com/kyreikal), Mehul Tanwar (github.com/DarknessItself)
 
 Runs on Apache Server.
 
