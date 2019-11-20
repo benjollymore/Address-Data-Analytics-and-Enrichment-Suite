@@ -49,7 +49,7 @@
 		{
 			if ($('.ui-page-active').attr('id') =="page1") 
 			{
-				initialize('addresses.txt')
+				initialize('addresses.txt', 'codes.txt')
 			} 
 			else if ($('.ui-page-active').attr('id') == "Page2") 
 			{
@@ -74,7 +74,7 @@
 				<div class="collapse navbar-collapse" id="navbarText">
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item active">
-							<a class="nav-link" href="#Page2">Address Lookup<span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="#Page2">Address Report<span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#page1">Address Database</a>
@@ -171,7 +171,7 @@
 
 			}
 
-			function initialize(file){
+			function initialize(file, codes){
 				if(!loaded){
 					var addresses;
 					var rawFile = new XMLHttpRequest();
@@ -191,9 +191,39 @@
 					}
 					rawFile.send(null);
 
+					//console.lo
+					
+					rawFile.open("GET", codes, false);
+					rawFile.onreadystatechange = function ()
+					{
+						if(rawFile.readyState === 4)
+						{
+							if(rawFile.status === 200 || rawFile.status == 0)
+							{
+								var allCodes = rawFile.responseText;
+								console.log(allCodes);
+								codes = allCodes.split('\n');
+								console.log(codes);
+							}
+						}
+					}
+					rawFile.send(null);
+
 					for (i = 0; i < addresses.length; i++){
+
+						var color;
+						if (codes[i+1] == 2){
+							color = 'class="btn btn-outline-danger"';
+						}
+						else if (codes[i+1] == 1){
+							color = 'class="btn btn-outline-warning"';
+						}
+						else if (codes[i+1] == 0){
+							color = 'class=\"btn btn-outline-success\"'
+						}
+
 						document.getElementById('nav').innerHTML += 
-						"<button onclick=\"getJSONData(" + i + ")\" style=\"width: 98%; margin-left: 1%; margin-right: 10%; margin-top: 15px;\"><a href=#Page2>" + addresses[i] + "</a></button><br>";
+						"<button type= \"button\" "+ color + " onclick=\"getJSONData(" + i + ")\" style=\"width: 98%; margin-left: 1%; margin-right: 10%; margin-top: 15px;\"><a href=#Page2>" + addresses[i] + "</a></button><br>";
 					}
 
 					loaded = true;}
@@ -312,7 +342,7 @@
 				<div class="collapse navbar-collapse" id="navbarText">
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item active">
-							<a class="nav-link" href="#">Address Lookup<span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="#">Address Report<span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#page1">Address Database</a>
@@ -552,7 +582,7 @@
 			<div class="collapse navbar-collapse" id="navbarText">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active">
-						<a class="nav-link" href="#">Address Lookup<span class="sr-only">(current)</span></a>
+						<a class="nav-link" href="#">Address Report<span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#page1">Address Database</a>
@@ -643,9 +673,6 @@
 				</div>
 			</div>
 		</div>
-				Developed By Ben Jollymore and Daniel Doucett. <br>
-				ben@jollycom.tech, github.com/benjollymore <br>
-				daniel@doucett.tech, github.com/kyreikal
 	</div>
 <!--
 		<form action="/echo" method="POST">

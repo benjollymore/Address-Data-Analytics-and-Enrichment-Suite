@@ -1,19 +1,32 @@
 {
-    "lattitude": "44.630674",
-    "longitude": "-63.5819852",
+    "lattitude": "44.6439891",
+    "longitude": "-63.61490089999999",
     "address": {
-        "number": "903",
-        "street": "Robie Street",
-        "neighborhood": "South End",
+        "number": "2529",
+        "street": "Sherwood Street",
+        "neighborhood": "West End",
         "locality": "Halifax",
         "city": "Halifax",
         "muncipality": "Halifax Regional Municipality",
         "province": "Nova Scotia",
         "country": "Canada",
-        "postal_code": "B3H 3C2"
+        "postal_code": "B3L 3G9"
     },
     "satClass": "city",
     "streetClass": "house",
+    "active": "None",
+    "commercialMail": "False",
+    "forwardsMail": "False",
+    "deliveryType": "SingleUnit",
+    "people": [
+        {
+            "name": "A Thompson",
+            "ageRange": "None",
+            "gender": "None",
+            "resType": "Person",
+            "phone": "+19024559279"
+        }
+    ],
     "flags": {
         "interesting": "False",
         "flagged": "False",

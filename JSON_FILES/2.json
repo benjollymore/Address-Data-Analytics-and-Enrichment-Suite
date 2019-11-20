@@ -90,11 +90,6 @@
             "types": "['point_of_interest', 'establishment']"
         },
         {
-            "name": "Parish Barbara Dr",
-            "vicinity": "5595 Fenwick Street, Halifax",
-            "types": "['doctor', 'health', 'point_of_interest', 'establishment']"
-        },
-        {
             "name": "Nova Scotia Assessments Svc",
             "vicinity": "5595 Fenwick Street, Halifax",
             "types": "['local_government_office', 'point_of_interest', 'establishment']"
@@ -103,6 +98,11 @@
             "name": "Sport Medicine Clinic",
             "vicinity": "5595 Fenwick Street, Halifax",
             "types": "['health', 'point_of_interest', 'establishment']"
+        },
+        {
+            "name": "Parish Barbara Dr",
+            "vicinity": "5595 Fenwick Street, Halifax",
+            "types": "['doctor', 'health', 'point_of_interest', 'establishment']"
         },
         {
             "name": "\u6c38\u79be\u9762\u9986",

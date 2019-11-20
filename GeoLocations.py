@@ -470,6 +470,14 @@ outputJSON = outputJSON[:-2]
 outputJSON += '}, '
 terminateJSON()
 
+with open("codes.txt", "a") as myfile:
+	if isFlagged:
+		myfile.write('\n2')
+	elif isInteresting:
+		myfile.write('\n1')
+	else:
+		myfile.write('\n0')
+
 if args.verboseJSON:
 	print(json.dumps(output, indent=4))
 

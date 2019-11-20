@@ -26,7 +26,7 @@ for addr in addresses:
 	command = 'python GeoLocations.py --ld --pad --pld --vj --sat --st --wp "' + addr + '" > JSON_FILES/' + str(addresses.index(addr)) + '.json'
 	#print(command)
 	subprocess.call(command, shell=True)
-
+'''
 for i in range(0, len(addresses)):
 	control = str(i) + '.json'
 	with open(control) as json_file:
@@ -39,7 +39,7 @@ outputJSON = json.loads(output)
 
 with open('output.json', 'w') as outfile:
     json.dump(outputJSON, outfile)
-
+'''
 application_window.destroy()
 
 print("Done!")

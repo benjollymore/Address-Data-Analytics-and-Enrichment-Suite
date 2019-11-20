@@ -25,11 +25,6 @@
             "types": "['restaurant', 'food', 'point_of_interest', 'establishment']"
         },
         {
-            "name": "Saint Mary's University",
-            "vicinity": "923 Robie Street, Halifax",
-            "types": "['university', 'point_of_interest', 'establishment']"
-        },
-        {
             "name": "Venture Grade",
             "vicinity": "923 Robie Street, Halifax",
             "types": "['finance', 'point_of_interest', 'establishment']"
@@ -40,7 +35,7 @@
             "types": "['university', 'point_of_interest', 'establishment']"
         },
         {
-            "name": "McNally Main, Saint Mary's University",
+            "name": "Saint Mary's University",
             "vicinity": "923 Robie Street, Halifax",
             "types": "['university', 'point_of_interest', 'establishment']"
         },
@@ -50,6 +45,11 @@
             "types": "['point_of_interest', 'establishment']"
         },
         {
+            "name": "McNally Main, Saint Mary's University",
+            "vicinity": "923 Robie Street, Halifax",
+            "types": "['university', 'point_of_interest', 'establishment']"
+        },
+        {
             "name": "Saint Mary\u2019s",
             "vicinity": "923 Robie Street, Halifax",
             "types": "['university', 'point_of_interest', 'establishment']"
@@ -57,7 +57,7 @@
     ],
     "flags": {
         "interesting": "True",
-        "flagged": "False",
+        "flagged": "True",
         "embassy": "False",
         "postOffice": "False"
     }

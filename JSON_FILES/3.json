@@ -48,19 +48,19 @@
             "types": "['furniture_store', 'home_goods_store', 'point_of_interest', 'store', 'establishment']"
         },
         {
-            "name": "Titan's Fitness Academy",
-            "vicinity": "174 Horseshoe Lake Drive, Halifax",
-            "types": "['gym', 'health', 'point_of_interest', 'establishment']"
-        },
-        {
             "name": "Happy Harry's Bayers Lake",
             "vicinity": "174 Horseshoe Lake Drive, Halifax",
             "types": "['furniture_store', 'home_goods_store', 'point_of_interest', 'store', 'establishment']"
+        },
+        {
+            "name": "Titan's Fitness Academy",
+            "vicinity": "174 Horseshoe Lake Drive, Halifax",
+            "types": "['gym', 'health', 'point_of_interest', 'establishment']"
         }
     ],
     "flags": {
         "interesting": "True",
-        "flagged": "False",
+        "flagged": "True",
         "embassy": "False",
         "postOffice": "False"
     }

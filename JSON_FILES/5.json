@@ -1,19 +1,19 @@
 {
-    "lattitude": "44.6807869",
-    "longitude": "-63.5107013",
+    "lattitude": "44.6439891",
+    "longitude": "-63.61490089999999",
     "address": {
-        "number": "8",
-        "street": "Whynette Place",
-        "neighborhood": "Woodlawn",
-        "locality": "Dartmouth",
+        "number": "2529",
+        "street": "Sherwood Street",
+        "neighborhood": "West End",
+        "locality": "Halifax",
         "city": "Halifax",
         "muncipality": "Halifax Regional Municipality",
         "province": "Nova Scotia",
         "country": "Canada",
-        "postal_code": "B2W 3H2"
+        "postal_code": "B3L 3G9"
     },
-    "satClass": "suburban",
-    "streetClass": "commercial",
+    "satClass": "city",
+    "streetClass": "house",
     "flags": {
         "interesting": "False",
         "flagged": "False",
