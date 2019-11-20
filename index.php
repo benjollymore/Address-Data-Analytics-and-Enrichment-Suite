@@ -11,6 +11,19 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
 	<link rel = "stylesheet" href = "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 	<style>
+		.loader {
+			border: 16px solid #f3f3f3; /* Light grey */
+			border-top: 16px solid #3498db; /* Blue */
+			border-radius: 50%;
+			width: 120px;
+			height: 120px;
+			animation: spin 2s linear infinite;
+		}
+
+		@keyframes spin {
+			0% { transform: rotate(0deg); }
+			100% { transform: rotate(360deg); }
+		}
 		td {padding-left:  1%;}
 	</style>
 	<script>
@@ -21,7 +34,7 @@
 		var MixedLocationWarning = 	
 		'<div class="card"><h5 class="card-header bg-warning">Mixed Location</h5><div class="card-body"><p class="card-text">This location may be mixed residential and commerical.</p></div><div class="card-footer"><small class="text-muted">Address has businesses</small></div></div>'
 		var NoWarnings = 
-		'<div class="card"><h5 class="card-header bg-info">No Flags</h5><div class="card-body"><p class="card-text">This address has not triggered any automated flags.</p></div><div class="card-footer"><small class="text-muted">No Flags</small></div></div>'
+		'<div class="card-body"><h5 class="card-header bg-info">No Flags</h5><p class="card-text">This address has not triggered any automated flags.</p></div><div class="card-footer"><small class="text-muted">No Flags</small></div></div>'
 		var EmbassyWarning =
 		'<div class="card"><h5 class="card-header bg-danger">Embassy</h5><div class="card-body"><p class="card-text">This location is flagged as a embassy. Verify mail is not being forwared out of the country.</p></div><div class="card-footer"><small class="text-muted">Embassy Flag Triggered</small></div></div>'
 	</script>
@@ -72,7 +85,28 @@
 					</ul>
 				</div>
 			</nav>
+			<h2> 
+				<form>
+					<script>
+						function sendToPy(address){
+							alert("Processing your query! Will alert when finished.");
 
+							document.getElementById('crap').innerHTML = "<div class=\"loader\"></div>";
+							$.post('sendNewQuery.php', {query: address}, function(data) {
+								console.log(data);
+								alert(data);
+								window.location.reload()
+							});
+						}
+
+
+					</script>
+					<div id="crap" class="text-center">
+						<input type="text" id="searchTxt" style="min-width: 70%; height: 40px; margin-left: 1%; margin-right: 1%">
+						<button class="btn btn-primary" type="button" onclick="sendToPy(document.getElementById('searchTxt').value)" style="width: 26%; margin-right=:1%; height: 40px; margin-top: -10px">Address Search</button>
+					</div>
+				</form>
+			</h2>
 
 
 			<script>
@@ -191,6 +225,7 @@
 					document.getElementById('StreeNum').innerHTML = json.address.number;
 					document.getElementById('StreetName').innerHTML = json.address.street;
 					document.getElementById('Neighborhood').innerHTML = json.address.neighborhood;
+					document.getElementById('Locality').innerHTML = json.address.locality;
 					document.getElementById('City').innerHTML = json.address.city;
 					document.getElementById('Muncipality').innerHTML = json.address.muncipality;
 					document.getElementById('Province').innerHTML = json.address.province;
@@ -210,10 +245,6 @@
 							document.getElementById('deck1').innerHTML += EmbassyWarning;
 						if(json.flags.interesting == "True")
 							document.getElementById('deck1').innerHTML += MixedLocationWarning;
-					}
-					else
-					{
-						document.getElementById('deck1').innerHTML = NoWarnings;
 					}
 
 				});
@@ -249,23 +280,7 @@
 				<!-- -->
 				<div class="col-8">
 					<div class ="jumbotron py-1" style="margin-left:15px;margin-right: 0px; margin-bottom: 15px;margin-top: 15px;">
-						<h2> 
-							<form>
-								<script>
-									function sendToPy(address){
-										$.post('sendNewQuery.php', {query: address}, function(data) {
-											console.log(data);
-											var index = data;
-											FileID ="/JSON_FILES/" + index + ".json";
-											loadData();
-
-										});
-									}
-								</script>
-								<input type="text" id="searchTxt" style="min-width: 70%; height: 40px; margin-left: 1%; margin-right: 1%">
-								<button class="btn btn-primary" type="button" onclick="sendToPy(document.getElementById('searchTxt').value)" style="width: 26%; margin-right=:1%; height: 40px; margin-top: -10px">Address Search</button>
-							</form>
-						</h2>
+						<!-- put addrss here -->
 					</div>
 
 					<div id="flags" class ="jumbotron px-2 py-3" style="margin-left:15px;margin-right: 0px; margin-bottom: 15px;margin-top: 15px;">
