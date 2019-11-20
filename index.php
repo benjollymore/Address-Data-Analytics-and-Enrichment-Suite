@@ -18,6 +18,12 @@
 
 		var PostOfficeWarning = 
 		'<div class="card"><h5 class="card-header bg-danger">Post Office</h5><div class="card-body"><p class="card-text">This location is flagged as a post office. Verify address is not a PO box.</p></div><div class="card-footer"><small class="text-muted">Post Office Flag Triggered</small></div></div>'
+		var MixedLocationWarning = 	
+		'<div class="card"><h5 class="card-header bg-warning">Mixed Location</h5><div class="card-body"><p class="card-text">This location may be mixed residential and commerical.</p></div><div class="card-footer"><small class="text-muted">Address has businesses</small></div></div>'
+		var NoWarnings = 
+		'<div class="card-body"><h5 class="card-header bg-info">No Flags</h5><p class="card-text">This address has not triggered any automated flags.</p></div><div class="card-footer"><small class="text-muted">No Flags</small></div></div>'
+		var EmbassyWarning =
+		'<div class="card"><h5 class="card-header bg-danger">Embassy</h5><div class="card-body"><p class="card-text">This location is flagged as a embassy. Verify mail is not being forwared out of the country.</p></div><div class="card-footer"><small class="text-muted">Embassy Flag Triggered</small></div></div>'
 	</script>
 </head>
 
@@ -195,12 +201,16 @@
 					document.getElementById('StreetView').innerHTML = "<iframe width=\"100%\" height=\"300\" frameborder=\"0\" style=\"border:0\"src=\"https://www.google.com/maps/embed/v1/streetview?location=" + json.lattitude + "," + json.longitude + "&pitch=10&key=AIzaSyCgcV2R4KkxhqdnzXXMAbYA4VLEBQd7w-8\" allowfullscreen></iframe>";
 					document.getElementById('SatView').innerHTML = "<iframe width=\"100%\" height=\"300\" frameborder=\"0\" style=\"border:0\"src=\"https://www.google.com/maps/embed/v1/view?center=" + json.lattitude + "," + json.longitude + "&zoom=18&maptype=satellite&key=AIzaSyCgcV2R4KkxhqdnzXXMAbYA4VLEBQd7w-8\" allowfullscreen></iframe>";
 					
-					console.log(json.flags.length)
-
-
-					document.getElementById('deck1').innerHTML += PostOfficeWarning;
-					document.getElementById('deck1').innerHTML += PostOfficeWarning;
-					document.getElementById('flagCaro').innerHTML += '<div class="carousel-item"><div class="card-deck" id="deck2">' + PostOfficeWarning +'</div></div>';
+					if (json.flags.flagged == "True")
+					{	
+						document.getElementById('deck1').innerHTML = "";
+						if (json.flags.postOffice == "True") 
+							document.getElementById('deck1').innerHTML += PostOfficeWarning;
+						if(json.flags.embasssy == "True")
+							document.getElementById('deck1').innerHTML += EmbassyWarning;
+						if(json.flags.interesting == "True")
+							document.getElementById('deck1').innerHTML += MixedLocationWarning;
+					}
 
 				});
 
@@ -511,11 +521,7 @@
 
 	<br><br>
 
-<<<<<<< HEAD
 	<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> --> 
-=======
-	<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
->>>>>>> 52a83549bf3b2fdab5ad3fed4d608e7f096cdc1d
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 </body>
