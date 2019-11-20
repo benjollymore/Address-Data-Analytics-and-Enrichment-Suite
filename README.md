@@ -1,5 +1,4 @@
-# DataHackathon
-Data Science repository for inhouse hackathon
+Address Data Analytics and Enrichment Suite
 
 Code by myself and Daniel Doucett (github.com/kyreikal)
 
