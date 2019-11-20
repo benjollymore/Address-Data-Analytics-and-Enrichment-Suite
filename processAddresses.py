@@ -6,7 +6,7 @@ import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
 
-
+print("Select a file for address data intake:")
 processes = []
 application_window = tk.Tk()
 my_filetypes = [('all files', '.*'), ('text files', '.txt')]
@@ -48,10 +48,6 @@ for j in range(0, len(addresses)):
 				myfile.write('\n1')
 			else:
 				myfile.write('\n0')
-
-
-
-
 
 '''
 for i in range(0, len(addresses)):

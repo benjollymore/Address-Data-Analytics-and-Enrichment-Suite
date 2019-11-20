@@ -1,115 +1,26 @@
 {
-    "lattitude": "44.6356139",
-    "longitude": "-63.5756761",
+    "lattitude": "44.630674",
+    "longitude": "-63.5819852",
     "address": {
-        "number": "5681",
-        "street": "Rhuland Street",
+        "number": "903",
+        "street": "Robie Street",
         "neighborhood": "South End",
         "locality": "Halifax",
         "city": "Halifax",
         "muncipality": "Halifax Regional Municipality",
         "province": "Nova Scotia",
         "country": "Canada",
-        "postal_code": "B3H"
+        "postal_code": "B3H 3C2"
     },
     "satClass": "city",
-    "streetClass": "apartment",
+    "streetClass": "house",
     "active": "None",
-    "commercialMail": "False",
+    "commercialMail": "None",
     "forwardsMail": "False",
-    "deliveryType": "SingleUnit",
-    "people": [
-        {
-            "name": "Kerry Wellon",
-            "ageRange": "None",
-            "gender": "None",
-            "resType": "Person",
-            "phone": "+19024742886"
-        },
-        {
-            "name": "Jordan Davis",
-            "ageRange": "None",
-            "gender": "None",
-            "resType": "Person",
-            "phone": "+19024437779"
-        },
-        {
-            "name": "Dan Tsvyatkov",
-            "ageRange": "None",
-            "gender": "None",
-            "resType": "Person",
-            "phone": "+19024222085"
-        },
-        {
-            "name": "Ardavan Iranmanesh",
-            "ageRange": "None",
-            "gender": "None",
-            "resType": "Person",
-            "phone": "+19024254567"
-        },
-        {
-            "name": "Patrick Rhyno",
-            "ageRange": "None",
-            "gender": "None",
-            "resType": "Person",
-            "phone": "+19024293836"
-        },
-        {
-            "name": "Peter Hill",
-            "ageRange": "None",
-            "gender": "None",
-            "resType": "Person",
-            "phone": "+19024258548"
-        },
-        {
-            "name": "William Durette",
-            "ageRange": "None",
-            "gender": "None",
-            "resType": "Person",
-            "phone": "+19024294881"
-        },
-        {
-            "name": "Steven Vogt",
-            "ageRange": "None",
-            "gender": "None",
-            "resType": "Person",
-            "phone": "+19024065590"
-        },
-        {
-            "name": "Arthur Dougla Vogt",
-            "ageRange": "85-89",
-            "gender": "None",
-            "resType": "Person",
-            "phone": "+19024292850"
-        },
-        {
-            "name": "A Asfour",
-            "ageRange": "None",
-            "gender": "None",
-            "resType": "Person",
-            "phone": "+19024348469"
-        }
-    ],
-    "businesses": [
-        {
-            "name": "The Sherwood",
-            "vicinity": "5681 Rhuland Street, Halifax",
-            "types": "['point_of_interest', 'establishment']"
-        },
-        {
-            "name": "V & G Realty Ltd",
-            "vicinity": "5681 Rhuland Street, Halifax",
-            "types": "['general_contractor', 'point_of_interest', 'establishment']"
-        },
-        {
-            "name": "Gaia Organic Cleaners",
-            "vicinity": "5681 Rhuland Street, Halifax",
-            "types": "['point_of_interest', 'establishment']"
-        }
-    ],
+    "deliveryType": "None",
     "flags": {
-        "interesting": "True",
-        "flagged": "True",
+        "interesting": "False",
+        "flagged": "False",
         "embassy": "False",
         "postOffice": "False"
     }

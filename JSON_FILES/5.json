@@ -13,7 +13,7 @@
         "postal_code": "B3J 2C6"
     },
     "satClass": "city",
-    "streetClass": "house",
+    "streetClass": "office",
     "active": "None",
     "commercialMail": "True",
     "forwardsMail": "False",
