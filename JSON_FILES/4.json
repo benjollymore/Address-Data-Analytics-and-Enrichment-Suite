@@ -1,28 +1,36 @@
 {
-    "lattitude": "44.6470598",
-    "longitude": "-63.575311",
+    "lattitude": "44.6807997",
+    "longitude": "-63.5104415",
     "address": {
-        "number": "1707",
-        "street": "Grafton Street",
-        "neighborhood": "South End",
-        "locality": "Halifax",
+        "number": "10",
+        "street": "Whynette Place",
+        "neighborhood": "Woodlawn",
+        "locality": "Dartmouth",
         "city": "Halifax",
         "muncipality": "Halifax Regional Municipality",
         "province": "Nova Scotia",
         "country": "Canada",
-        "postal_code": "B3J 2C6"
+        "postal_code": "B2W 3H2"
     },
-    "satClass": "city",
-    "streetClass": "apartment",
-    "businesses": [
+    "satClass": "suburban",
+    "streetClass": "house",
+    "active": "None",
+    "commercialMail": "False",
+    "forwardsMail": "False",
+    "deliveryType": "SingleUnit",
+    "people": [
         {
-            "name": "The Wooden Monkey",
-            "vicinity": "1707 Grafton Street, Halifax",
-            "types": "['restaurant', 'food', 'point_of_interest', 'establishment']"
+            "name": "Patricia Bornhym",
+            "ageRange": "None",
+            "gender": "Female",
+            "resType": "Person",
+            "phone": "+19024347654"
         }
     ],
-    "interesting": "True",
-    "flagged": "False",
-    "embassy": "False",
-    "postOffice": "False"
+    "flags": {
+        "interesting": "False",
+        "flagged": "False",
+        "embassy": "False",
+        "postOffice": "False"
+    }
 }
