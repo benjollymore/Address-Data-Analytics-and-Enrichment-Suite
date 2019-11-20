@@ -89,12 +89,10 @@
 				<form>
 					<script>
 						function sendToPy(address){
-							alert("Processing your query! Will alert when finished.");
 
 							document.getElementById('crap').innerHTML = "<div class=\"loader\"></div>";
 							$.post('sendNewQuery.php', {query: address}, function(data) {
 								console.log(data);
-								alert(data);
 								window.location.reload()
 							});
 						}
