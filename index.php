@@ -194,10 +194,18 @@
 					//Fill the sat and street view fields
 					document.getElementById('StreetView').innerHTML = "<iframe width=\"100%\" height=\"300\" frameborder=\"0\" style=\"border:0\"src=\"https://www.google.com/maps/embed/v1/streetview?location=" + json.lattitude + "," + json.longitude + "&pitch=10&key=AIzaSyCgcV2R4KkxhqdnzXXMAbYA4VLEBQd7w-8\" allowfullscreen></iframe>";
 					document.getElementById('SatView').innerHTML = "<iframe width=\"100%\" height=\"300\" frameborder=\"0\" style=\"border:0\"src=\"https://www.google.com/maps/embed/v1/view?center=" + json.lattitude + "," + json.longitude + "&zoom=18&maptype=satellite&key=AIzaSyCgcV2R4KkxhqdnzXXMAbYA4VLEBQd7w-8\" allowfullscreen></iframe>";
+					
+					console.log(json.flags.length)
+
+
+					document.getElementById('deck1').innerHTML += PostOfficeWarning;
+					document.getElementById('deck1').innerHTML += PostOfficeWarning;
+					document.getElementById('flagCaro').innerHTML += '<div class="carousel-item"><div class="card-deck" id="deck2">' + PostOfficeWarning +'</div></div>';
+
 				});
 
-				$("#prevbtn").click(function() {$('#carouselExampleControls').carousel('prev');return false; })
-				$("#nextbtn").click(function() {$('#carouselExampleControls').carousel('next');return false; })
+				$("#prevbtn").click(function() {$('#carousel').carousel('prev');return false; })
+				$("#nextbtn").click(function() {$('#carousel').carousel('next');return false; })
 
 			}
 
@@ -266,14 +274,14 @@
 
 						<div class="row">
 							<div class="col-1">
-								<button id="prevbtn" class="m-0 p-0" style="width:100%; height:100%" disabled> <h1> < </h1></button>
+								<button id="prevbtn" class="m-0 p-0" style="width:100%; height:100%"> <h1> < </h1></button>
 							</div>
  
 							<div class="col-10 p-0">
 								<div id="carousel" class="carousel slide" data-ride="carousel">
-									<div class="carousel-inner">
+									<div class="carousel-inner" id="flagCaro">
 										<div class="carousel-item active">
-											<div class="card-deck">
+											<div class="card-deck" id="deck1">
 												<div class="card">
 													<h5 class="card-header bg-info">No Flags</h5>
 													<div class="card-body">
@@ -289,7 +297,7 @@
 								</div>
 							</div>						
 							<div class="col-1">
-								<button id="nextbtn" class="m-0 p-0" style="width:100%; height:100%" disabled> <h1> ></h1></button>
+								<button id="nextbtn" class="m-0 p-0" style="width:100%; height:100%"> <h1> ></h1></button>
 							</div>
 						</div>
 
@@ -501,7 +509,7 @@
 
 	<br><br>
 
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> 
+	<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> --> 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 </body>
