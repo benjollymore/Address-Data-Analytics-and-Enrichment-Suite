@@ -1,19 +1,23 @@
 {
-    "lattitude": "44.6439891",
-    "longitude": "-63.61490089999999",
+    "lattitude": "44.6353477",
+    "longitude": "-63.5761545",
     "address": {
-        "number": "2529",
-        "street": "Sherwood Street",
-        "neighborhood": "West End",
+        "number": "5861",
+        "street": "Rhuland Street",
+        "neighborhood": "South End",
         "locality": "Halifax",
         "city": "Halifax",
         "muncipality": "Halifax Regional Municipality",
         "province": "Nova Scotia",
         "country": "Canada",
-        "postal_code": "B3L 3G9"
+        "postal_code": "B3H"
     },
     "satClass": "city",
     "streetClass": "house",
+    "active": "None",
+    "commercialMail": "None",
+    "forwardsMail": "False",
+    "deliveryType": "None",
     "flags": {
         "interesting": "False",
         "flagged": "False",
