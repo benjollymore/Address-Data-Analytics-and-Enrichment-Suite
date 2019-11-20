@@ -1,0 +1,29 @@
+{
+    "lattitude": "36.7508424",
+    "longitude": "-95.96592679999999",
+    "address": {
+        "number": "900",
+        "street": "Southeast Frank Phillips Boulevard",
+        "locality": "Bartlesville",
+        "muncipality": "Washington County",
+        "province": "Oklahoma",
+        "country": "United States",
+        "postal_code": "74003",
+        "Invalid entry": "4230"
+    },
+    "satClass": "industrial",
+    "streetClass": "commercial",
+    "businesses": [
+        {
+            "name": "Abc-123 Learning Center",
+            "vicinity": "900 Southeast Frank Phillips Boulevard, Bartlesville",
+            "types": "['point_of_interest', 'establishment']"
+        }
+    ],
+    "flags": {
+        "interesting": "True",
+        "flagged": "False",
+        "embassy": "False",
+        "postOffice": "False"
+    }
+}
