@@ -14,6 +14,33 @@
     },
     "satClass": "city",
     "streetClass": "commercial",
+    "active": "None",
+    "commercialMail": "True",
+    "forwardsMail": "False",
+    "deliveryType": "SingleUnit",
+    "people": [
+        {
+            "name": "Nothin' Fancy Furniture Wrhse",
+            "ageRange": "None",
+            "gender": "None",
+            "resType": "Business",
+            "phone": "+19024057005"
+        },
+        {
+            "name": "Catch A Look Clothing & Barber",
+            "ageRange": "None",
+            "gender": "None",
+            "resType": "Business",
+            "phone": "+19024550012"
+        },
+        {
+            "name": "U-Haul Neighborhood Dealer",
+            "ageRange": "None",
+            "gender": "None",
+            "resType": "Business",
+            "phone": "+18004684285"
+        }
+    ],
     "businesses": [
         {
             "name": "Nothin' Fancy Furniture Warehouse",
@@ -31,8 +58,10 @@
             "types": "['furniture_store', 'home_goods_store', 'point_of_interest', 'store', 'establishment']"
         }
     ],
-    "interesting": "True",
-    "flagged": "False",
-    "embassy": "False",
-    "postOffice": "False"
+    "flags": {
+        "interesting": "True",
+        "flagged": "False",
+        "embassy": "False",
+        "postOffice": "False"
+    }
 }

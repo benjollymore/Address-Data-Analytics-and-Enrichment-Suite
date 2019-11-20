@@ -196,6 +196,7 @@ def switch(argument):
         "street_number": "number",
         "route": "street",
         "neighborhood": "neighborhood",
+        "political": "neighborhood",
         "locality": "locality",
         "administrative_area_level_3": "city",
         "administrative_area_level_2": "muncipality",

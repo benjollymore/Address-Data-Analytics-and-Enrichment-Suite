@@ -236,8 +236,10 @@
 				<div class="col-8">
 					<div class ="jumbotron py-1" style="margin-left:15px;margin-right: 0px; margin-bottom: 15px;margin-top: 15px;">
 						<h2> 
+						<form>
 							<input type="text" style="min-width: 70%; height: 40px; margin-left: 1%; margin-right: 1%">
 							<button class="btn btn-primary" type="button" style="width: 26%; margin-right=:1%; height: 40px; margin-top: -10px">Address Search</button>
+						</form>
 						</h2>
 					</div>
 
@@ -509,7 +511,11 @@
 
 	<br><br>
 
+<<<<<<< HEAD
 	<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> --> 
+=======
+	<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+>>>>>>> 52a83549bf3b2fdab5ad3fed4d608e7f096cdc1d
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 </body>

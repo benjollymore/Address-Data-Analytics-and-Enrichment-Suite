@@ -14,6 +14,10 @@
     },
     "satClass": "city",
     "streetClass": "apartment",
+    "active": "None",
+    "commercialMail": "None",
+    "forwardsMail": "False",
+    "deliveryType": "None",
     "businesses": [
         {
             "name": "SMU Faculty Lounge",
@@ -31,14 +35,14 @@
             "types": "['finance', 'point_of_interest', 'establishment']"
         },
         {
-            "name": "McNally Theatre Auditorium",
-            "vicinity": "923 Robie Street, Halifax",
-            "types": "['point_of_interest', 'establishment']"
-        },
-        {
             "name": "Saint Mary's University",
             "vicinity": "923 Robie Street, Halifax",
             "types": "['university', 'point_of_interest', 'establishment']"
+        },
+        {
+            "name": "McNally Theatre Auditorium",
+            "vicinity": "923 Robie Street, Halifax",
+            "types": "['point_of_interest', 'establishment']"
         },
         {
             "name": "McNally Main, Saint Mary's University",
@@ -51,8 +55,10 @@
             "types": "['university', 'point_of_interest', 'establishment']"
         }
     ],
-    "interesting": "True",
-    "flagged": "False",
-    "embassy": "False",
-    "postOffice": "False"
+    "flags": {
+        "interesting": "True",
+        "flagged": "False",
+        "embassy": "False",
+        "postOffice": "False"
+    }
 }

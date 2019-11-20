@@ -14,8 +14,23 @@
     },
     "satClass": "city",
     "streetClass": "house",
-    "interesting": "False",
-    "flagged": "False",
-    "embassy": "False",
-    "postOffice": "False"
+    "active": "True",
+    "commercialMail": "False",
+    "forwardsMail": "False",
+    "deliveryType": "SingleUnit",
+    "people": [
+        {
+            "name": "Mike Cullen",
+            "ageRange": "None",
+            "gender": "Male",
+            "resType": "Person",
+            "phone": "+19024222398"
+        }
+    ],
+    "flags": {
+        "interesting": "False",
+        "flagged": "False",
+        "embassy": "False",
+        "postOffice": "False"
+    }
 }
