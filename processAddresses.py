@@ -19,7 +19,10 @@ print("Processing your request, please wait. When finished, a web interface will
 
 addresses = [line.rstrip('\n') for line in open(controlFile)]
 
-output = '{ "addresses":['
+#output = '{ "addresses":['
+
+with open("codes.txt", 'w') as filetowrite:
+    filetowrite.write('-')
 
 for addr in addresses: 
 	print("Processing: ", addr)

@@ -35,6 +35,11 @@
             "types": "['university', 'point_of_interest', 'establishment']"
         },
         {
+            "name": "McNally Main, Saint Mary's University",
+            "vicinity": "923 Robie Street, Halifax",
+            "types": "['university', 'point_of_interest', 'establishment']"
+        },
+        {
             "name": "Saint Mary's University",
             "vicinity": "923 Robie Street, Halifax",
             "types": "['university', 'point_of_interest', 'establishment']"
@@ -43,11 +48,6 @@
             "name": "McNally Theatre Auditorium",
             "vicinity": "923 Robie Street, Halifax",
             "types": "['point_of_interest', 'establishment']"
-        },
-        {
-            "name": "McNally Main, Saint Mary's University",
-            "vicinity": "923 Robie Street, Halifax",
-            "types": "['university', 'point_of_interest', 'establishment']"
         },
         {
             "name": "Saint Mary\u2019s",

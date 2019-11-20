@@ -471,7 +471,7 @@ outputJSON += '}, '
 terminateJSON()
 
 with open("codes.txt", "a") as myfile:
-	if isFlagged:
+	if isPostOffice:
 		myfile.write('\n2')
 	elif isInteresting:
 		myfile.write('\n1')
