@@ -41,8 +41,6 @@ Thumbs.db
 *.bk
 *.h5
 Models
-*.png
-*.jpg
 dashboard
 !service-canada-logo.jpg
 !Images
