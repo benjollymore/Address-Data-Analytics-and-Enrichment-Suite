@@ -13,7 +13,7 @@
         "postal_code": "B3S 1H2"
     },
     "satClass": "city",
-    "streetClass": "office",
+    "streetClass": "house",
     "active": "None",
     "commercialMail": "True",
     "forwardsMail": "False",
@@ -48,14 +48,14 @@
             "types": "['furniture_store', 'home_goods_store', 'point_of_interest', 'store', 'establishment']"
         },
         {
-            "name": "Titan's Fitness Academy",
-            "vicinity": "174 Horseshoe Lake Drive, Halifax",
-            "types": "['gym', 'health', 'point_of_interest', 'establishment']"
-        },
-        {
             "name": "Happy Harry's Bayers Lake",
             "vicinity": "174 Horseshoe Lake Drive, Halifax",
             "types": "['furniture_store', 'home_goods_store', 'point_of_interest', 'store', 'establishment']"
+        },
+        {
+            "name": "Titan's Fitness Academy",
+            "vicinity": "174 Horseshoe Lake Drive, Halifax",
+            "types": "['gym', 'health', 'point_of_interest', 'establishment']"
         }
     ],
     "flags": {

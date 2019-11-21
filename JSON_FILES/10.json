@@ -12,7 +12,7 @@
         "country": "Canada",
         "postal_code": "B2W 3H2"
     },
-    "satClass": "city",
+    "satClass": "suburban",
     "streetClass": "house",
     "active": "None",
     "commercialMail": "False",
