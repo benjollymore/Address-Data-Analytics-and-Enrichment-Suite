@@ -29,7 +29,7 @@ with open("codes.txt", 'w') as filetowrite:
 
 for addr in addresses: 
 	print("Processing: ", addr)
-	command = 'python GeoLocations.py --ld --pad --pld --vj --sat --st --wp "' + addr + '" > JSON_FILES/' + str(addresses.index(addr)) + '.json'
+	command = 'python GeoLocations.py --ld --pad --pld --vj --sat --st --wp "' + addr + '" ' + str(addresses.index(addr)) +'  > JSON_FILES/' + str(addresses.index(addr)) + '.json'
 	#print(command)
 	processes.append(Popen(command, shell=True))
 

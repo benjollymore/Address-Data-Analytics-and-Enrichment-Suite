@@ -1,0 +1,54 @@
+{
+    "lattitude": "44.6548463",
+    "longitude": "-63.6749714",
+    "address": {
+        "number": "220",
+        "street": "Chain Lake Drive",
+        "neighborhood": "Clayton Park West",
+        "locality": "Halifax",
+        "city": "Halifax",
+        "muncipality": "Halifax Regional Municipality",
+        "province": "Nova Scotia",
+        "country": "Canada",
+        "postal_code": "B3S 1C9"
+    },
+    "satClass": "suburban",
+    "streetClass": "apartment",
+    "active": "None",
+    "commercialMail": "None",
+    "forwardsMail": "False",
+    "deliveryType": "None",
+    "businesses": [
+        {
+            "name": "Walmart Halifax (W) Supercentre",
+            "vicinity": "220 Chain Lake Drive, Halifax",
+            "types": "['department_store', 'point_of_interest', 'store', 'establishment']"
+        },
+        {
+            "name": "Photos Unlimited Portrait Studios",
+            "vicinity": "220 Chain Lake Drive, Halifax",
+            "types": "['point_of_interest', 'establishment']"
+        },
+        {
+            "name": "Walmart Vision Centre",
+            "vicinity": "220 Chain Lake Drive, Halifax",
+            "types": "['point_of_interest', 'establishment']"
+        },
+        {
+            "name": "Walmart Grocery Pickup",
+            "vicinity": "220 Chain Lake Drive, Halifax",
+            "types": "['food', 'point_of_interest', 'establishment']"
+        },
+        {
+            "name": "Walmart Photo Centre",
+            "vicinity": "220 Chain Lake Drive, Halifax",
+            "types": "['point_of_interest', 'establishment']"
+        }
+    ],
+    "flags": {
+        "interesting": "True",
+        "flagged": "True",
+        "embassy": "False",
+        "postOffice": "False"
+    }
+}

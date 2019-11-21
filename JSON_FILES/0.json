@@ -13,7 +13,7 @@
         "postal_code": "B3H 1G3"
     },
     "satClass": "city",
-    "streetClass": "house",
+    "streetClass": "apartment",
     "active": "None",
     "commercialMail": "None",
     "forwardsMail": "False",
@@ -25,14 +25,14 @@
             "types": "['restaurant', 'food', 'point_of_interest', 'establishment']"
         },
         {
-            "name": "Venture Grade",
-            "vicinity": "923 Robie Street, Halifax",
-            "types": "['finance', 'point_of_interest', 'establishment']"
-        },
-        {
             "name": "Saint Mary's University",
             "vicinity": "923 Robie Street, Halifax",
             "types": "['university', 'point_of_interest', 'establishment']"
+        },
+        {
+            "name": "Venture Grade",
+            "vicinity": "923 Robie Street, Halifax",
+            "types": "['finance', 'point_of_interest', 'establishment']"
         },
         {
             "name": "McNally Main, Saint Mary's University",

@@ -1,0 +1,62 @@
+{
+    "lattitude": "44.6495734",
+    "longitude": "-63.67132520000001",
+    "address": {
+        "number": "190",
+        "street": "Chain Lake Drive",
+        "neighborhood": "Clayton Park West",
+        "locality": "Halifax",
+        "city": "Halifax",
+        "muncipality": "Halifax Regional Municipality",
+        "province": "Nova Scotia",
+        "country": "Canada",
+        "postal_code": "B3S 1C5"
+    },
+    "satClass": "industrial",
+    "streetClass": "apartment",
+    "active": "None",
+    "commercialMail": "True",
+    "forwardsMail": "False",
+    "deliveryType": "SingleUnit",
+    "people": [
+        {
+            "name": "Scotiabank Theatre Halifax",
+            "ageRange": "None",
+            "gender": "None",
+            "resType": "Business",
+            "phone": "+19028764800"
+        },
+        {
+            "name": "Cineplex Cinemas Halifax",
+            "ageRange": "None",
+            "gender": "None",
+            "resType": "Business",
+            "phone": "+19028764848"
+        },
+        {
+            "name": "TCBY",
+            "ageRange": "None",
+            "gender": "None",
+            "resType": "Business",
+            "phone": "+19028764805"
+        }
+    ],
+    "businesses": [
+        {
+            "name": "Scotiabank Theatre Halifax",
+            "vicinity": "190 Chain Lake Drive, Halifax",
+            "types": "['movie_theater', 'point_of_interest', 'establishment']"
+        },
+        {
+            "name": "Social Media Day Halifax",
+            "vicinity": "190 Chain Lake Drive, Halifax",
+            "types": "['point_of_interest', 'establishment']"
+        }
+    ],
+    "flags": {
+        "interesting": "True",
+        "flagged": "True",
+        "embassy": "False",
+        "postOffice": "False"
+    }
+}

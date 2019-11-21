@@ -1,0 +1,36 @@
+{
+    "lattitude": "44.6807869",
+    "longitude": "-63.5107013",
+    "address": {
+        "number": "8",
+        "street": "Whynette Place",
+        "neighborhood": "Woodlawn",
+        "locality": "Dartmouth",
+        "city": "Halifax",
+        "muncipality": "Halifax Regional Municipality",
+        "province": "Nova Scotia",
+        "country": "Canada",
+        "postal_code": "B2W 3H2"
+    },
+    "satClass": "suburban",
+    "streetClass": "commercial",
+    "active": "None",
+    "commercialMail": "False",
+    "forwardsMail": "False",
+    "deliveryType": "SingleUnit",
+    "people": [
+        {
+            "name": "Christopher Giles",
+            "ageRange": "None",
+            "gender": "Male",
+            "resType": "Person",
+            "phone": "+19024350768"
+        }
+    ],
+    "flags": {
+        "interesting": "False",
+        "flagged": "False",
+        "embassy": "False",
+        "postOffice": "False"
+    }
+}

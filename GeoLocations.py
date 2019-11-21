@@ -32,6 +32,7 @@ parser = argparse.ArgumentParser(
 	" info including nearby businesses")
 parser.add_argument('stringname', metavar='address', type=str, nargs='+',
 	help="Address for the building")
+parser.add_argument("index", type=int, help="index for file storage")
 parser.add_argument('--pld', dest='printLocalData', help="Find the building type",
 	action="store_true")
 parser.add_argument('--ld', dest='localData', 
@@ -363,7 +364,9 @@ def street(lattitude, longitude):
 	key2 = '&pitch=10&key=AIzaSyCgcV2R4KkxhqdnzXXMAbYA4VLEBQd7w-8'
 	query2 = url2 + str(lattitude) + ',' + str(longitude) + key2
 	
-	urllib.request.urlretrieve(query2, "templates/stView.jpg")
+	imageLoc = "templates/stView" + str(args.index) + ".jpg"
+
+	urllib.request.urlretrieve(query2, imageLoc)
 	
 	#img2 = Image.open("templates/stView.jpg")
 	#img2.show()
@@ -372,7 +375,7 @@ def street(lattitude, longitude):
 	
 	model2 = tf.keras.models.load_model("Models/CNNStreet.model")
 	
-	img_array2 = cv2.imread("templates/stView.jpg", cv2.IMREAD_COLOR)
+	img_array2 = cv2.imread(imageLoc, cv2.IMREAD_COLOR)
 	img_array2 = img_array2/255.0
 	new_array2 = cv2.resize(img_array2, (400, 400))
 	new_array2 = new_array2.reshape(-1, 400, 400, 3)
@@ -389,7 +392,9 @@ def sattelite(lattitude, longitude):
 	key1 = '&zoom=15&size=400x400&maptype=satellite&key=AIzaSyCgcV2R4KkxhqdnzXXMAbYA4VLEBQd7w-8'
 	query1 = url1 + str(lattitude) + ',' + str(longitude) + key1
 	
-	urllib.request.urlretrieve(query1, "templates/satellite.png")
+	imageLoc2 = "templates/satellite" + str(args.index) + ".png"
+
+	urllib.request.urlretrieve(query1, imageLoc2)
 	#img1 = Image.open("templates/satellite.png")
 	#img1.show()
 	
@@ -397,7 +402,7 @@ def sattelite(lattitude, longitude):
 	
 	model = tf.keras.models.load_model("Models/CNN.model")
 	
-	img_array = cv2.imread("templates/satellite.png", cv2.IMREAD_COLOR)
+	img_array = cv2.imread(imageLoc2, cv2.IMREAD_COLOR)
 	img_array = img_array/255.0
 	new_array = cv2.resize(img_array, (400, 400))
 	new_array = new_array.reshape(-1, 400, 400, 3)
