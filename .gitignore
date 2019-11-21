@@ -44,7 +44,7 @@ Models
 *.png
 *.jpg
 dashboard
-!service_canada_logo.jpg
+!service-canada-logo.jpg
 applications.html
 bitnami.css
 favicon.ico
