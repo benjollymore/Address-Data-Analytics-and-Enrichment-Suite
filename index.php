@@ -34,7 +34,7 @@
 		var MixedLocationWarning = 	
 		'<div class="card"><h5 class="card-header bg-warning">Mixed Location</h5><div class="card-body"><p class="card-text">This location may be mixed residential and commerical.</p></div><div class="card-footer"><small class="text-muted">Address has businesses</small></div></div>'
 		var NoWarnings = 
-		'<div class="card-body"><h5 class="card-header bg-info">No Flags</h5><p class="card-text">This address has not triggered any automated flags.</p></div><div class="card-footer"><small class="text-muted">No Flags</small></div></div>'
+		'<div class="card"><h5 class="card-header bg-info">No Flags</h5><div class="card-body"><p class="card-text">This address has not triggered any automated flags.</p></div><div class="card-footer"><small class="text-muted">No Flags</small></div></div>'
 		var EmbassyWarning =
 		'<div class="card"><h5 class="card-header bg-danger">Embassy</h5><div class="card-body"><p class="card-text">This location is flagged as a embassy. Verify mail is not being forwared out of the country.</p></div><div class="card-footer"><small class="text-muted">Embassy Flag Triggered</small></div></div>'
 	</script>
@@ -113,7 +113,7 @@
 				{
 					FileID ="/JSON_FILES/" + number + ".json";
 					console.log(FileID);
-				//$.mobile.changePage("Page2");
+				$.mobile.changePage("#Page2");
 
 			}
 
@@ -221,7 +221,7 @@
 						}
 
 						document.getElementById('nav').innerHTML += 
-						"<button type= \"button\" "+ color + " onclick=\"getJSONData(" + i + ")\" style=\"width: 98%; margin-left: 1%; margin-right: 10%; margin-top: 15px;\"><a href=#Page2>" + addresses[i] + "</a></button><br>";
+						"<button type= \"button\" "+ color + " onclick=\"getJSONData(" + i + ")\" style=\"width: 98%; margin-left: 1%; margin-right: 10%; margin-top: 15px;\" href=\"#Page2\">" + addresses[i] + "</button><br>";
 					}
 
 					loaded = true;}
