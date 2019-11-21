@@ -1,0 +1,35 @@
+{
+    "lattitude": "44.6329916",
+    "longitude": "-63.5785286",
+    "address": {
+        "Invalid entry": "The Language Centre",
+        "number": "960",
+        "street": "Tower Road",
+        "neighborhood": "South End",
+        "locality": "Halifax",
+        "city": "Halifax",
+        "muncipality": "Halifax Regional Municipality",
+        "province": "Nova Scotia",
+        "country": "Canada",
+        "postal_code": "B3H 2Y4"
+    },
+    "satClass": "city",
+    "streetClass": "house",
+    "active": "None",
+    "commercialMail": "None",
+    "forwardsMail": "False",
+    "deliveryType": "None",
+    "businesses": [
+        {
+            "name": "Saint Mary's University Entrepreneurship Centre",
+            "vicinity": "960 Tower Road, Halifax",
+            "types": "['point_of_interest', 'establishment']"
+        }
+    ],
+    "flags": {
+        "interesting": "True",
+        "flagged": "True",
+        "embassy": "False",
+        "postOffice": "False"
+    }
+}
