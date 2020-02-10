@@ -90,9 +90,9 @@ def terminateJSON():
 #Variables for APIs
 url = 'https://maps.googleapis.com/maps/api/geocode/json?address='
 urlPlaces = 'https://maps.googleapis.com/maps/api/place/details/json?'
-urlWhitePages = "https://api.ekata.com/3.0/location?api_key=cffb32044ba94e209665f793595abe37"
-key = '&key=AIzaSyCgcV2R4KkxhqdnzXXMAbYA4VLEBQd7w-8'
-APIkey = 'AIzaSyCgcV2R4KkxhqdnzXXMAbYA4VLEBQd7w-8'
+urlWhitePages = "https://api.ekata.com/3.0/location?api_key="
+key = ''
+APIkey = ''
 
 #https://python.gotrained.com/google-places-api-extracting-location-data-reviews/
 def search_places_by_coordinate(location, radius):
